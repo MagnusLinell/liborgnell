@@ -1,0 +1,30 @@
+img {
+    width: 200px;
+}
+
+.ettiquette {
+    height: 100px;
+}
+
+.fermentation {
+    height: 300px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+section {
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+     text-align: center;
+}
