@@ -3,14 +3,29 @@
 
 <head>
     <title>liborgnell</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" >
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" type="text/css" href="styles.css" lazyload>
+        <![endif]-->
 </head>
 
 <body>
+    <!--[if !IE]> -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" lazyload>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"
+        lazyload>
+    <link rel="stylesheet" type="text/css" href="styles.css" lazyload>
+    <!-- <![endif]-->
     <header>
+
         <h1>Liborgnell</h1>
+        <h2>Ett litet hemmabryggeri bryggt på kärlek</h2>
+
     </header>
     <main>
+
         <section>
             <h2>SEPTIPA XIX</h2>
             <div class="ettiquette"></div>
@@ -36,6 +51,21 @@
             <p>Fjärde ölen blev en fin Pilsner</p>
         </section>
     </main>
+    
+    <footer>
+        <h3>Det är alltid en ny pågång!</h3>
+    </footer>
+
+    <script type="text/javascript">
+        var body = document.body;
+        body.classList.add("js-loading");
+
+        window.addEventListener("load", showPage);
+
+        function showPage() {
+            body.classList.remove('js-loading');
+        }
+    </script>
 
 </body>
 
