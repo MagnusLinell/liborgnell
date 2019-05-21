@@ -21,85 +21,95 @@
     <header>
         <h1>Liborgnell</h1>
         <h2>Ett litet hemmabryggeri bryggt på kärlek</h2>
+        <nav>
+            <button type="button" onclick="showBeers()">Ölen</button>
+            <button type="button" onclick="showEquipments()">Utrustning</button>
+        </nav>
     </header>
     <main>
-        <article>
-            <h3>Bryggt på helmalt</h3>
-            <div class="sections">
-                <section>
-                    <h2>Mama´s pils</h2>
-                    <p>10 liter - 3.5 %</p>
-                    <div className="">
-                        <img class="fermentation" src="img/fermentation/batch_5.jpg" alt="Fifth batch" />
-                        <p>Mamma fyller år och får en folkis på vår första helmalt.</p>
+        <div class="content-equipments hide">
+            <h3>Utrustning</h3>
+            <p>Det finns inget beskrivet om utrusning än!</p>
+        </div>
+        <div class="content-beers">
+            <article>
+                <h3>Bryggt på helmalt</h3>
+                <div class="sections">
+                    <section>
+                        <h2>Mama´s pils</h2>
+                        <p>10 liter - 3.5 %</p>
+                        <div className="">
+                            <img class="fermentation" src="img/fermentation/batch_5.jpg" alt="Fifth batch" />
+                            <p>Mamma fyller år och får en folkis på vår första helmalt.</p>
+                            <ul>
+                                <li><strong>Stil:</strong> Amarillo Pale Ale</li>
+                                <li><strong>Humle:</strong> Amarillo</li>
+                                <li><strong>Malt:</strong> Pilsnermalt och CaraMunich I</li>
+                                <li><strong>Jäst:</strong> US-05</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <h3>Bryggt på maltextrakt</h3>
+                <div class="sections">
+                    <section>
+                        <h2>SEPTIPA XIX</h2>
+                        <p>10 liter - okänd %</p>
+                        <img class="fermentation" src="img/fermentation/batch_1.jpg" alt="First batch" />
+                        <p>Första ölen blev en IPA!</p>
                         <ul>
-                            <li><strong>Stil:</strong> Amarillo Pale Ale</li>
-                            <li><strong>Humle:</strong> Amarillo</li>
-                            <li><strong>Malt:</strong> Pilsnermalt och CaraMunich I</li>
-                            <li><strong>Jäst:</strong> US-05</li>
+                            <li><strong>Stil:</strong> India Pale Ale (IPA)</li>
+                            <li><strong>Humle:</strong> Citra</li>
+                            <li><strong>Malt:</strong> Pale Ale och havregryn</li>
                         </ul>
-                    </div>
-                </section>
-            </div>
-        </article>
-        <article>
-            <h3>Bryggt på maltextrakt</h3>
-            <div class="sections">
-                <section>
-                    <h2>SEPTIPA XIX</h2>
-                    <p>10 liter - okänd %</p>
-                    <img class="fermentation" src="img/fermentation/batch_1.jpg" alt="First batch" />
-                    <p>Första ölen blev en IPA!</p>
-                    <ul>
-                        <li><strong>Stil:</strong> India Pale Ale (IPA)</li>
-                        <li><strong>Humle:</strong> Citra</li>
-                        <li><strong>Malt:</strong> Pale Ale och havregryn</li>
-                    </ul>
-                    <a href="https://www.koksbryggeriet.se/sv/artiklar/ipahhh-india-pale-ale-grande-receptsats-10-liter-.html"
-                        rel="noreferrer noopener nofollow">Receptsats</a>
-                </section>
-                <section>
-                    <h2>Santa's little rain beer</h2>
-                    <p>10 liter - okänd %</p>
-                    <img class="fermentation" src="img/fermentation/batch_2.jpg" alt="Second batch" />
-                    <p>Andra ölen blev en mörk lager</p>
-                    <ul>
-                        <li><strong>Stil:</strong> Mörk lager</li>
-                        <li><strong>Humle:</strong> Svensk humle</li>
-                        <li><strong>Malt:</strong> Rostat kornmalt</li>
-                        <li><strong>Extra:</strong> Julkryddor av torkat äpple, kanel, nejlika, kardemumma och
-                            fläderblommor</li>
-                    </ul>
-                    <a href="https://www.koksbryggeriet.se/sv/blogg/aktuellt/2018/10/23/julol-2018.html"
-                        rel="noreferrer noopener nofollow">Läs om receptet</a>
-                </section>
-                <section>
-                    <h2>Amarillo IPA</h2>
-                    <p>10 liter - okänd %</p>
-                    <div class="fermentation"></div>
-                    <p>Tredje blev en riktigt god öl</p>
-                    <ul>
-                        <li><strong>Stil:</strong> American Pale Ale</li>
-                        <li><strong>Humle:</strong> Amarillo</li>
-                        <li><strong>Malt:</strong> Pale Ale malt, färgmalt och ljus karamellmalt</li>
-                    </ul>
-                    <a href="https://www.koksbryggeriet.se/sv/artiklar/apa-by-oppigards-55-receptsats-10-liter.html"
-                        rel="noreferrer noopener nofollow">Receptsats</a>
-                </section>
-                <section>
-                    <h2>Pilsner'n</h2>
-                    <p>10 liter - okänd %</p>
-                    <div class="fermentation"></div>
-                    <p>Fjärde ölen blev en fin Pilsner</p>
-                    <ul>
-                        <li><strong>Stil:</strong> Bohemian Pilsner</li>
-                        <li><strong>Humle:</strong> Saaz</li>
-                        <li><strong>Malt:</strong> Caramalt</li>
-                    </ul>
-                    <a href="https://www.koksbryggeriet.se/sv/artiklar/pilsner-5-receptsats-10-liter.html"
-                        rel="noreferrer noopener nofollow">Receptsats</a>
-                </section>
-        </article>
+                        <a href="https://www.koksbryggeriet.se/sv/artiklar/ipahhh-india-pale-ale-grande-receptsats-10-liter-.html"
+                            rel="noreferrer noopener nofollow">Receptsats</a>
+                    </section>
+                    <section>
+                        <h2>Santa's little rain beer</h2>
+                        <p>10 liter - okänd %</p>
+                        <img class="fermentation" src="img/fermentation/batch_2.jpg" alt="Second batch" />
+                        <p>Andra ölen blev en mörk lager</p>
+                        <ul>
+                            <li><strong>Stil:</strong> Mörk lager</li>
+                            <li><strong>Humle:</strong> Svensk humle</li>
+                            <li><strong>Malt:</strong> Rostat kornmalt</li>
+                            <li><strong>Extra:</strong> Julkryddor av torkat äpple, kanel, nejlika, kardemumma och
+                                fläderblommor</li>
+                        </ul>
+                        <a href="https://www.koksbryggeriet.se/sv/blogg/aktuellt/2018/10/23/julol-2018.html"
+                            rel="noreferrer noopener nofollow">Läs om receptet</a>
+                    </section>
+                    <section>
+                        <h2>Amarillo IPA</h2>
+                        <p>10 liter - okänd %</p>
+                        <div class="fermentation"></div>
+                        <p>Tredje blev en riktigt god öl</p>
+                        <ul>
+                            <li><strong>Stil:</strong> American Pale Ale</li>
+                            <li><strong>Humle:</strong> Amarillo</li>
+                            <li><strong>Malt:</strong> Pale Ale malt, färgmalt och ljus karamellmalt</li>
+                        </ul>
+                        <a href="https://www.koksbryggeriet.se/sv/artiklar/apa-by-oppigards-55-receptsats-10-liter.html"
+                            rel="noreferrer noopener nofollow">Receptsats</a>
+                    </section>
+                    <section>
+                        <h2>Pilsner'n</h2>
+                        <p>10 liter - okänd %</p>
+                        <div class="fermentation"></div>
+                        <p>Fjärde ölen blev en fin Pilsner</p>
+                        <ul>
+                            <li><strong>Stil:</strong> Bohemian Pilsner</li>
+                            <li><strong>Humle:</strong> Saaz</li>
+                            <li><strong>Malt:</strong> Caramalt</li>
+                        </ul>
+                        <a href="https://www.koksbryggeriet.se/sv/artiklar/pilsner-5-receptsats-10-liter.html"
+                            rel="noreferrer noopener nofollow">Receptsats</a>
+                    </section>
+            </article>
+        </div>
     </main>
 
     <footer>
@@ -114,6 +124,16 @@
 
         function showPage() {
             body.classList.remove('js-loading');
+        }
+
+        function showBeers() {
+            document.getElementsByClassName('content-equipments')[0].classList.add('hide');
+            document.getElementsByClassName('content-beers')[0].classList.remove('hide');
+        }
+
+        function showEquipments() {
+            document.getElementsByClassName('content-equipments')[0].classList.remove('hide');
+            document.getElementsByClassName('content-beers')[0].classList.add('hide');
         }
     </script>
 
