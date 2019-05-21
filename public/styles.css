@@ -48,6 +48,7 @@ img {
 
 main {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     padding: 20px;
 }
@@ -63,28 +64,22 @@ article h3 {
 }
 
 .sections {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px, 1fr));
+    grid-gap: 20px;
 }
 
 section {
-    width: 280px;
     padding: 20px;
     text-align: center;
     background-color: #d2dae2;
     color: #1e272e;
-    margin: 0 10px;
     border-radius: 5px;
     min-height: 500px;
-}
-
-section:first-child {
-    margin-left: 0;
-}
-
-section:last-child {
-    margin-right: 0;
 }
 
 section h2 {
