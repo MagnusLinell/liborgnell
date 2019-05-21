@@ -31,7 +31,7 @@ h3 {
 
 p {
     margin: 0 0 10px 0;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 img {
@@ -44,6 +44,7 @@ img {
 
 .fermentation {
     height: 375px;
+    margin-bottom: 10px;
 }
 
 main {
@@ -97,4 +98,13 @@ footer {
 
 .js-loading {
     display: none;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    text-align: left;
+    font-size: 16px;
 }
