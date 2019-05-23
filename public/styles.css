@@ -74,9 +74,6 @@ article h3 {
 }
 
 .sections {
-    /* display: flex;
-    flex-direction: row;
-    align-items: center; */
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(280px, 1fr));
@@ -84,6 +81,7 @@ article h3 {
 }
 
 section {
+    position: relative;
     padding: 20px;
     text-align: center;
     background-color: #d2dae2;
@@ -131,4 +129,13 @@ nav button {
 
 main div.hide {
     display: none;
+}
+
+.babdge {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    background-color: #ffd32a;
+    border: 1px solid #1e272e;
+    padding: 5px 10px;
 }
