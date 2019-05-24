@@ -1,5 +1,6 @@
 ---
 title: Gräsänklingsölen
+type: helmalt
 description: >-
   Ensam hemma. Då passar det att brygga en öl själv. Kör en kopia på förra och
   testar om det går att få upp alkoholhalten.
@@ -11,7 +12,7 @@ style: Amarillo Pale Ale
 hop: Amarillo
 malt: ' Pilsnermalt och CaraMunich I'
 yeast: US-05
-linkUrl: /
-linkText: Läs mer
+linkUrl: ''
+linkText: ''
 ---
 
