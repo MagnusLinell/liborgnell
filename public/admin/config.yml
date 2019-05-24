@@ -1,12 +1,12 @@
 backend:
   name: git-gateway
 
-media_folder: "img/uploads"
+media_folder: "public/img"
 
 collections:
   - name: "beer"
     label: "New beer"
-    folder: "_beers"
+    folder: "public/cms/_beers"
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
