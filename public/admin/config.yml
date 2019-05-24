@@ -20,5 +20,5 @@ collections:
       - {label: "Hop", name: "hop", widget: "string"}
       - {label: "Malt", name: "malt", widget: "string"}
       - {label: "Yeast", name: "yeast", widget: "string"}
-      - {label: "Link url", name: "linkUrl", widget: "string"}
-      - {label: "Link text", name: "linkText", widget: "string"}
+      - {label: "Link url", name: "linkUrl", widget: "string", required: false}
+      - {label: "Link text", name: "linkText", widget: "string", required: false}
