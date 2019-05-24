@@ -10,6 +10,7 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Type", name: "type", widget: "select", options: ["maltextract", "helmalt"]}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Alcohol %", name: "alcohol", widget: "string"}
       - {label: "Brew date", name: "brewDate", widget: "datetime"}
