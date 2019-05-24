@@ -12,6 +12,7 @@ collections:
       - {label: "Titel", name: "title", widget: "string"}
       - {label: "Kategori", name: "type", widget: "select", options: ["maltextract", "helmalt"]}
       - {label: "Beskrivning", name: "description", widget: "string"}
+      - {label: "Volym (liter)", name: "volume", widget: "string"}
       - {label: "Alkohol %", name: "alcohol", widget: "string"}
       - {label: "Bryggdatum", name: "brewDate", widget: "datetime"}
       - {label: "Tappdatum", name: "tapDate", widget: "datetime"}
