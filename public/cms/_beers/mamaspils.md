@@ -1,5 +1,6 @@
 ---
 title: Mama´s pils
+type: helmalt
 description: Mamma fyller år och får en folkis på vår första helmalt.
 alcohol: '3,5'
 brewDate: 2019-04-22T17:43:27.924Z
@@ -9,7 +10,7 @@ style: Amarillo Pale Ale
 hop: Amarillo
 malt: Pilsnermalt och CaraMunich I
 yeast: ' US-05'
-linkUrl: /
-linkText: Läs mer
+linkUrl: ''
+linkText: ''
 ---
 
