@@ -5,20 +5,20 @@ media_folder: "public/img"
 
 collections:
   - name: "beer"
-    label: "New beer"
+    label: "Ny öl"
     folder: "public/cms/_beers"
     create: true
     fields:
-      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
-      - {label: "Type", name: "type", widget: "select", options: ["maltextract", "helmalt"]}
-      - {label: "Description", name: "description", widget: "string"}
-      - {label: "Alcohol %", name: "alcohol", widget: "string"}
-      - {label: "Brew date", name: "brewDate", widget: "datetime"}
-      - {label: "Tap date", name: "tapDate", widget: "datetime"}
-      - {label: "Drink date", name: "drinkDate", widget: "datetime"}
-      - {label: "Style", name: "style", widget: "string"}
-      - {label: "Hop", name: "hop", widget: "string"}
+      - {label: "Titel", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Kategori", name: "type", widget: "select", options: ["maltextract", "helmalt"]}
+      - {label: "Beskrivning", name: "description", widget: "string"}
+      - {label: "Alkohol %", name: "alcohol", widget: "string"}
+      - {label: "Bryggdatum", name: "brewDate", widget: "datetime"}
+      - {label: "Tappdatum", name: "tapDate", widget: "datetime"}
+      - {label: "Färdigdatum", name: "drinkDate", widget: "datetime"}
+      - {label: "Stil", name: "style", widget: "string"}
+      - {label: "Humle", name: "hop", widget: "string"}
       - {label: "Malt", name: "malt", widget: "string"}
-      - {label: "Yeast", name: "yeast", widget: "string"}
-      - {label: "Link url", name: "linkUrl", widget: "string", required: false}
-      - {label: "Link text", name: "linkText", widget: "string", required: false}
+      - {label: "Jäst", name: "yeast", widget: "string"}
+      - {label: "Länkurl", name: "linkUrl", widget: "string", required: false}
+      - {label: "Länktext", name: "linkText", widget: "string", required: false}
