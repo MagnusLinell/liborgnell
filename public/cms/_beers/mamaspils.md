@@ -1,5 +1,5 @@
 ---
-title: Mama´s pils
+title: 'Mama´s pils'
 type: helmalt
 description: Mamma fyller år och får en folkis på vår första helmalt.
 volume: 10

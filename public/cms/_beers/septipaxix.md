@@ -1,5 +1,5 @@
 ---
-title: SEPTIPA XIX
+title: 'SEPTIPA XIX'
 type: maltextrakt
 description: >-
   Första ölen blev en IPA!

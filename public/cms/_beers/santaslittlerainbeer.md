@@ -1,5 +1,5 @@
 ---
-title: 'Santa's little rain beer'
+title: "Santa's little rain beer"
 type: maltextrakt
 description: >-
   Andra ölen blev en mörk lager

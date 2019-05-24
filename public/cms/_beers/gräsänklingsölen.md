@@ -1,5 +1,5 @@
 ---
-title: Gräsänklingsölen
+title: 'Gräsänklingsölen'
 type: helmalt
 description: >-
   Ensam hemma. Då passar det att brygga en öl själv. Kör en kopia på förra och

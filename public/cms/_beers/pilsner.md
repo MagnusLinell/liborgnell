@@ -1,5 +1,5 @@
 ---
-title: Pilsner'n
+title: "Pilsner'n"
 type: maltextrakt
 description: >-
   Fjärde ölen blev en fin Pilsner

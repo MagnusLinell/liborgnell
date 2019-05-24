@@ -1,5 +1,5 @@
 ---
-title: Amarillo IPA
+title: 'Amarillo IPA'
 type: maltextrakt
 description: >-
   Tredje blev en riktigt god öl
