@@ -5,11 +5,11 @@ media_folder: "public/img"
 
 collections:
   - name: "beer"
-    label: "Ny öl"
+    label: "Öl"
     folder: "public/cms/_beers"
     create: true
     fields:
-      - {label: "Titel", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Titel", name: "title", widget: "string"}
       - {label: "Kategori", name: "type", widget: "select", options: ["maltextract", "helmalt"]}
       - {label: "Beskrivning", name: "description", widget: "string"}
       - {label: "Alkohol %", name: "alcohol", widget: "string"}
@@ -22,3 +22,10 @@ collections:
       - {label: "Jäst", name: "yeast", widget: "string"}
       - {label: "Länkurl", name: "linkUrl", widget: "string", required: false}
       - {label: "Länktext", name: "linkText", widget: "string", required: false}
+  - name: "equipments"
+    label: "Utrustning"
+    folder: "public/cms/_equipments"
+    create: true
+    fields:
+      - {label: "Kategori", name: "category", widget: "select", options: ["milling", "lautering", "boiling", "whirlpooling", "cooling", "fermenting", "maturing", "filtering", "packaging", "distribution"]}
+      - {label: "Titel", name: "title", widget: "string"}
