@@ -127,6 +127,7 @@ nav button {
     background-color: #d2dae2;
     font-weight: 700;
     font-size: 22px;
+    cursor: pointer;
 }
 
 main div.hide {
