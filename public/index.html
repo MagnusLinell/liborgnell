@@ -20,14 +20,14 @@
     <meta charset="utf-8">
 
     <!--[if IE]>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" >
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-        <link rel="stylesheet" type="text/css" href="styles.css" lazyload>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <![endif]-->
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>
-    <script>
+    <script async>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -35,185 +35,283 @@
         gtag('config', 'UA-140775141-1');
     </script>
 
+    <style>
+        .spinner-container.hide {
+            display: none;
+        }
+
+        .spinner-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .spinner>div {
+            background-color: #ffd32a;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+
+            -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            animation: sk-stretchdelay 1.2s infinite ease-in-out;
+        }
+
+        .spinner .rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .spinner .rect3 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        .spinner .rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .spinner .rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+        @-webkit-keyframes sk-stretchdelay {
+
+            0%,
+            40%,
+            100% {
+                -webkit-transform: scaleY(0.4)
+            }
+
+            20% {
+                -webkit-transform: scaleY(1.0)
+            }
+        }
+
+        @keyframes sk-stretchdelay {
+
+            0%,
+            40%,
+            100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+            }
+
+            20% {
+                transform: scaleY(1.0);
+                -webkit-transform: scaleY(1.0);
+            }
+        }
+    </style>
+
 </head>
 
-<body>
+<body style="background-color: #1e272e;">
     <!--[if !IE]> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" lazyload>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"
         lazyload>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" lazyload>
     <link rel="stylesheet" type="text/css" href="styles.css" lazyload>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"
+        lazyload>
     <!-- <![endif]-->
-    <header>
-        <h1>Liborgnell</h1>
-        <h2>Ett litet hembryggeri som brygger med kärlek och känsla</h2>
-        <p>Vi brygger olika varianter av öl. Mestadels öl gjort på enbart malt, humle, jäst och vatten.</p>
-        <nav>
-            <button type="button" onclick="showBeers()"><i class="fas fa-beer"></i> Ölen</button>
-            <button type="button" onclick="showProcess()"><i class="fas fa-flask"></i> Processen</button>
-            <button type="button" onclick="showEquipments()"><i class="fas fa-toolbox"></i> Utrustningen</button>
-            <button type="button" onclick="showAbout()"><i class="fas fa-user-friends"></i> Bryggarna</button>
-        </nav>
-    </header>
-    <main>
-        <div class="content-beers">
-            <article>
-                <h3>Bryggt på helmalt</h3>
-                <div class="sections">
-                    <section>
-                        <div class="babdge">Kolsyras</div>
-                        <h2>Mama´s pils</h2>
-                        <p>28 April 2019 - 10 liter - 3.5%</p>
-                        <div className="">
-                            <img class="fermentation" src="img/fermentation_batch_5.png" alt="Mama´s pils" />
-                            <p>Mamma fyller år och får en folkis på vår första helmalt.</p>
-                            <ul>
-                                <li><strong>Stil:</strong> Amarillo Pale Ale</li>
-                                <li><strong>Humle:</strong> Amarillo</li>
-                                <li><strong>Malt:</strong> Pilsnermalt och CaraMunich I</li>
-                                <li><strong>Jäst:</strong> US-05</li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section>
-                        <div class="babdge">Jäser</div>
-                        <h2>Gräsänklingsölen</h2>
-                        <p>23 Maj 2019 - 10 liter - okänd%</p>
-                        <div className="">
-                            <img class="fermentation" src="img/fermentation_batch_6.png" alt="Gräsänklingsölen" />
-                            <p>Ensam hemma. Då passar det att brygga en öl själv. Kör en kopia på förra och testar om
-                                det går att få upp alkoholhalten.</p>
-                            <ul>
-                                <li><strong>Stil:</strong> Amarillo Pale Ale</li>
-                                <li><strong>Humle:</strong> Amarillo</li>
-                                <li><strong>Malt:</strong> Pilsnermalt och CaraMunich I</li>
-                                <li><strong>Jäst:</strong> US-05</li>
-                            </ul>
-                        </div>
-                    </section>
-                </div>
-            </article>
-            <article>
-                <h3>Bryggt på maltextrakt</h3>
-                <div class="sections">
-                    <section>
-                        <h2>SEPTIPA XIX</h2>
-                        <p>10 liter - okänd%</p>
-                        <img class="fermentation" src="img/fermentation_batch_1.png" alt="SEPTIPA XIX" />
-                        <p>Första ölen blev en IPA!</p>
-                        <ul>
-                            <li><strong>Stil:</strong> India Pale Ale (IPA)</li>
-                            <li><strong>Humle:</strong> Citra</li>
-                            <li><strong>Malt:</strong> Pale Ale och havregryn</li>
-                        </ul>
-                        <a href="https://www.koksbryggeriet.se/sv/artiklar/ipahhh-india-pale-ale-grande-receptsats-10-liter-.html"
-                            rel="noreferrer noopener nofollow">Receptsats</a>
-                    </section>
-                    <section>
-                        <h2>Santa's little rain beer</h2>
-                        <p>10 liter - okänd%</p>
-                        <img class="fermentation" src="img/fermentation_batch_2.png" alt="Santa's little rain beer" />
-                        <p>Andra ölen blev en mörk lager</p>
-                        <ul>
-                            <li><strong>Stil:</strong> Mörk lager</li>
-                            <li><strong>Humle:</strong> Svensk humle</li>
-                            <li><strong>Malt:</strong> Rostat kornmalt</li>
-                            <li><strong>Extra:</strong> Julkryddor av torkat äpple, kanel, nejlika, kardemumma och
-                                fläderblommor</li>
-                        </ul>
-                        <a href="https://www.koksbryggeriet.se/sv/blogg/aktuellt/2018/10/23/julol-2018.html"
-                            rel="noreferrer noopener nofollow">Läs om receptet</a>
-                    </section>
-                    <section>
-                        <h2>Amarillo IPA</h2>
-                        <p>10 liter - okänd%</p>
-                        <div class="fermentation"></div>
-                        <p>Tredje blev en riktigt god öl</p>
-                        <ul>
-                            <li><strong>Stil:</strong> American Pale Ale</li>
-                            <li><strong>Humle:</strong> Amarillo</li>
-                            <li><strong>Malt:</strong> Pale Ale malt, färgmalt och ljus karamellmalt</li>
-                        </ul>
-                        <a href="https://www.koksbryggeriet.se/sv/artiklar/apa-by-oppigards-55-receptsats-10-liter.html"
-                            rel="noreferrer noopener nofollow">Receptsats</a>
-                    </section>
-                    <section>
-                        <h2>Pilsner'n</h2>
-                        <p>10 liter - okänd%</p>
-                        <img class="fermentation" src="img/fermentation_batch_4.png" alt="Pilsner'n" />
-                        <p>Fjärde ölen blev en fin Pilsner</p>
-                        <ul>
-                            <li><strong>Gäst:</strong> Malin Borg</li>
-                            <li><strong>Stil:</strong> Bohemian Pilsner</li>
-                            <li><strong>Humle:</strong> Saaz</li>
-                            <li><strong>Malt:</strong> Caramalt</li>
-                        </ul>
-                        <a href="https://www.koksbryggeriet.se/sv/artiklar/pilsner-5-receptsats-10-liter.html"
-                            rel="noreferrer noopener nofollow">Receptsats</a>
-                    </section>
-            </article>
-        </div>
-        <div class="content-equipments maxwidth hide">
-            <h3>Utrustning</h3>
-            <h4>Kokkärl</h4>
-            <ul>
-                <li>10 literskastrull</li>
-            </ul>
-            <h4>Jäskärl</h4>
-            <ul>
-                <li>10 liters jäskärl i plast</li>
-                <li>30 liters jäskärl i plast</li>
-            </ul>
-            <h4>Kylning</h4>
-            <ul>
-                <li>Kylspiral</li>
-            </ul>
-            <h4>Övrigt</h4>
-            <ul>
-                <li>Stålsil</li>
-                <li>Plastslev</li>
-                <li>Kylbox</li>
-                <li>Hydrometer</li>
-                <li>Mätglas i glas</li>
-            </ul>
-        </div>
-        <div class="content-process maxwidth hide">
-            <h3>Tillverkningsprocessen</h3>
-            <p>BIAB-metoden - Brew In A Bag</p>
-            <h4>Lakning</h4>
-            <p>Värm upp vatten till 71 grader. Tillsätt krossad malt. Låt stå i 67 grader under 60 min.</p>
-            <h4>Kokning</h4>
-            <p>Koka upp till 100 grader. Tillsätt humle. Koka i 60 min.</p>
-            <h4>Kylning</h4>
-            <p>Kyl ölen snabbt till 20 grader.</p>
-            <h4>Filtrering</h4>
-            <p>Filtrera ölet genom en sil över till ett jäskärl.</p>
-            <h4>Jäsning</h4>
-            <p>Jäs ölet under ca 2 veckor.</p>
-            <h4>Buteljering</h4>
-            <p>Häll socker i flaskorna och fyll dem med det jästa ölet. Låt stå i ca 2 veckor.</p>
-        </div>
-        <div class="content-about maxwidth hide">
-            <h3>Ölbryggarna</h3>
-            <p>Paret Veronica Borg och Magnus Linell har sedan hösten 2018 bryggt öl på både maltextrakt och helmalt. Senast brygger vi på BIAB-metoden hemma i köket i Sollentuna.</p>
-        </div>
-    </main>
 
-    <footer>
-        <h3>Alltid en ny batch på gång!</h3>
-    </footer>
+    <div class="spinner-container">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Liborgnell</h1>
+            <h2>Ett litet hembryggeri som brygger med kärlek och känsla</h2>
+            <p>Vi brygger olika varianter av öl. Mestadels öl gjort på enbart malt, humle, jäst och vatten.</p>
+            <nav>
+                <button type="button" onclick="showBeers()"><i class="fas fa-beer"></i> Ölen</button>
+                <button type="button" onclick="showProcess()"><i class="fas fa-flask"></i> Processen</button>
+                <button type="button" onclick="showEquipments()"><i class="fas fa-toolbox"></i> Utrustningen</button>
+                <button type="button" onclick="showAbout()"><i class="fas fa-user-friends"></i> Bryggarna</button>
+            </nav>
+        </header>
+        <main>
+            <div class="content-beers">
+                <article>
+                    <h3>Bryggt på helmalt</h3>
+                    <div class="sections">
+                        <section>
+                            <div class="babdge">Kolsyras</div>
+                            <h2>Mama´s pils</h2>
+                            <p>28 April 2019 - 10 liter - 3.5%</p>
+                            <div className="">
+                                <img class="fermentation" src="img/fermentation_batch_5.png" alt="Mama´s pils" />
+                                <p>Mamma fyller år och får en folkis på vår första helmalt.</p>
+                                <ul>
+                                    <li><strong>Stil:</strong> Amarillo Pale Ale</li>
+                                    <li><strong>Humle:</strong> Amarillo</li>
+                                    <li><strong>Malt:</strong> Pilsnermalt och CaraMunich I</li>
+                                    <li><strong>Jäst:</strong> US-05</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="babdge">Jäser</div>
+                            <h2>Gräsänklingsölen</h2>
+                            <p>23 Maj 2019 - 10 liter - okänd%</p>
+                            <div className="">
+                                <img class="fermentation" src="img/fermentation_batch_6.png" alt="Gräsänklingsölen" />
+                                <p>Ensam hemma. Då passar det att brygga en öl själv. Kör en kopia på förra och testar
+                                    om
+                                    det går att få upp alkoholhalten.</p>
+                                <ul>
+                                    <li><strong>Stil:</strong> Amarillo Pale Ale</li>
+                                    <li><strong>Humle:</strong> Amarillo</li>
+                                    <li><strong>Malt:</strong> Pilsnermalt och CaraMunich I</li>
+                                    <li><strong>Jäst:</strong> US-05</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+                <article>
+                    <h3>Bryggt på maltextrakt</h3>
+                    <div class="sections">
+                        <section>
+                            <h2>SEPTIPA XIX</h2>
+                            <p>10 liter - okänd%</p>
+                            <img class="fermentation" src="img/fermentation_batch_1.png" alt="SEPTIPA XIX" />
+                            <p>Första ölen blev en IPA!</p>
+                            <ul>
+                                <li><strong>Stil:</strong> India Pale Ale (IPA)</li>
+                                <li><strong>Humle:</strong> Citra</li>
+                                <li><strong>Malt:</strong> Pale Ale och havregryn</li>
+                            </ul>
+                            <a href="https://www.koksbryggeriet.se/sv/artiklar/ipahhh-india-pale-ale-grande-receptsats-10-liter-.html"
+                                rel="noreferrer noopener nofollow">Receptsats</a>
+                        </section>
+                        <section>
+                            <h2>Santa's little rain beer</h2>
+                            <p>10 liter - okänd%</p>
+                            <img class="fermentation" src="img/fermentation_batch_2.png"
+                                alt="Santa's little rain beer" />
+                            <p>Andra ölen blev en mörk lager</p>
+                            <ul>
+                                <li><strong>Stil:</strong> Mörk lager</li>
+                                <li><strong>Humle:</strong> Svensk humle</li>
+                                <li><strong>Malt:</strong> Rostat kornmalt</li>
+                                <li><strong>Extra:</strong> Julkryddor av torkat äpple, kanel, nejlika, kardemumma och
+                                    fläderblommor</li>
+                            </ul>
+                            <a href="https://www.koksbryggeriet.se/sv/blogg/aktuellt/2018/10/23/julol-2018.html"
+                                rel="noreferrer noopener nofollow">Läs om receptet</a>
+                        </section>
+                        <section>
+                            <h2>Amarillo IPA</h2>
+                            <p>10 liter - okänd%</p>
+                            <div class="fermentation"></div>
+                            <p>Tredje blev en riktigt god öl</p>
+                            <ul>
+                                <li><strong>Stil:</strong> American Pale Ale</li>
+                                <li><strong>Humle:</strong> Amarillo</li>
+                                <li><strong>Malt:</strong> Pale Ale malt, färgmalt och ljus karamellmalt</li>
+                            </ul>
+                            <a href="https://www.koksbryggeriet.se/sv/artiklar/apa-by-oppigards-55-receptsats-10-liter.html"
+                                rel="noreferrer noopener nofollow">Receptsats</a>
+                        </section>
+                        <section>
+                            <h2>Pilsner'n</h2>
+                            <p>10 liter - okänd%</p>
+                            <img class="fermentation" src="img/fermentation_batch_4.png" alt="Pilsner'n" />
+                            <p>Fjärde ölen blev en fin Pilsner</p>
+                            <ul>
+                                <li><strong>Gäst:</strong> Malin Borg</li>
+                                <li><strong>Stil:</strong> Bohemian Pilsner</li>
+                                <li><strong>Humle:</strong> Saaz</li>
+                                <li><strong>Malt:</strong> Caramalt</li>
+                            </ul>
+                            <a href="https://www.koksbryggeriet.se/sv/artiklar/pilsner-5-receptsats-10-liter.html"
+                                rel="noreferrer noopener nofollow">Receptsats</a>
+                        </section>
+                </article>
+            </div>
+            <div class="content-equipments maxwidth hide">
+                <h3>Utrustning</h3>
+                <h4>Kokkärl</h4>
+                <ul>
+                    <li>10 literskastrull</li>
+                </ul>
+                <h4>Jäskärl</h4>
+                <ul>
+                    <li>10 liters jäskärl i plast</li>
+                    <li>30 liters jäskärl i plast</li>
+                </ul>
+                <h4>Kylning</h4>
+                <ul>
+                    <li>Kylspiral</li>
+                </ul>
+                <h4>Övrigt</h4>
+                <ul>
+                    <li>Stålsil</li>
+                    <li>Plastslev</li>
+                    <li>Kylbox</li>
+                    <li>Hydrometer</li>
+                    <li>Mätglas i glas</li>
+                </ul>
+            </div>
+            <div class="content-process maxwidth hide">
+                <h3>Tillverkningsprocessen</h3>
+                <p>BIAB-metoden - Brew In A Bag</p>
+                <h4>Lakning</h4>
+                <p>Värm upp vatten till 71 grader. Tillsätt krossad malt. Låt stå i 67 grader under 60 min.</p>
+                <h4>Kokning</h4>
+                <p>Koka upp till 100 grader. Tillsätt humle. Koka i 60 min.</p>
+                <h4>Kylning</h4>
+                <p>Kyl ölen snabbt till 20 grader.</p>
+                <h4>Filtrering</h4>
+                <p>Filtrera ölet genom en sil över till ett jäskärl.</p>
+                <h4>Jäsning</h4>
+                <p>Jäs ölet under ca 2 veckor.</p>
+                <h4>Buteljering</h4>
+                <p>Häll socker i flaskorna och fyll dem med det jästa ölet. Låt stå i ca 2 veckor.</p>
+            </div>
+            <div class="content-about maxwidth hide">
+                <h3>Ölbryggarna</h3>
+                <p>Paret Veronica Borg och Magnus Linell har sedan hösten 2018 bryggt öl på både maltextrakt och
+                    helmalt.
+                    Senast brygger vi på BIAB-metoden hemma i köket i Sollentuna.</p>
+            </div>
+        </main>
+
+        <footer>
+            <h3>Alltid en ny batch på gång!</h3>
+        </footer>
+    </div>
 
     <script type="text/javascript">
-        var body = document.body;
+        var body = document.getElementsByClassName('container')[0];
         body.classList.add("js-loading");
 
         window.addEventListener("load", showPage);
 
         function showPage() {
             body.classList.remove('js-loading');
+            document.getElementsByClassName('spinner-container')[0].classList.add('hide');
         }
 
         function showBeers() {

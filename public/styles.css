@@ -1,5 +1,7 @@
 body {
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Amatic SC', 'Georgia';
+    text-transform: uppercase;
+    font-weight: 100;
     background-color: #1e272e;
     color: #d2dae2;
 }
