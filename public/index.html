@@ -54,6 +54,7 @@
             <button type="button" onclick="showBeers()"><i class="fas fa-beer"></i> Ölen</button>
             <button type="button" onclick="showProcess()"><i class="fas fa-flask"></i> Processen</button>
             <button type="button" onclick="showEquipments()"><i class="fas fa-toolbox"></i> Utrustningen</button>
+            <button type="button" onclick="showAbout()"><i class="fas fa-user-friends"></i> Bryggarna</button>
         </nav>
     </header>
     <main>
@@ -154,7 +155,7 @@
                     </section>
             </article>
         </div>
-        <div class="content-equipments hide">
+        <div class="content-equipments maxwidth hide">
             <h3>Utrustning</h3>
             <h4>Kokkärl</h4>
             <ul>
@@ -178,12 +179,11 @@
                 <li>Mätglas i glas</li>
             </ul>
         </div>
-        <div class="content-process hide">
+        <div class="content-process maxwidth hide">
             <h3>Tillverkningsprocessen</h3>
             <p>BIAB-metoden - Brew In A Bag</p>
             <h4>Lakning</h4>
-            <p>Värm upp vatten till 71 grader. Tillsätt krossad malt i påsen. Låt stå isolerat i 67 grader under 60
-                min.</p>
+            <p>Värm upp vatten till 71 grader. Tillsätt krossad malt. Låt stå i 67 grader under 60 min.</p>
             <h4>Kokning</h4>
             <p>Koka upp till 100 grader. Tillsätt humle. Koka i 60 min.</p>
             <h4>Kylning</h4>
@@ -194,6 +194,10 @@
             <p>Jäs ölet under ca 2 veckor.</p>
             <h4>Buteljering</h4>
             <p>Häll socker i flaskorna och fyll dem med det jästa ölet. Låt stå i ca 2 veckor.</p>
+        </div>
+        <div class="content-about maxwidth hide">
+            <h3>Ölbryggarna</h3>
+            <p>Paret Veronica Borg och Magnus Linell har sedan hösten 2018 bryggt öl på både maltextrakt och helmalt. Senast brygger vi på BIAB-metoden hemma i köket i Sollentuna.</p>
         </div>
     </main>
 
@@ -215,19 +219,28 @@
             document.getElementsByClassName('content-beers')[0].classList.remove('hide');
             document.getElementsByClassName('content-equipments')[0].classList.add('hide');
             document.getElementsByClassName('content-process')[0].classList.add('hide');
+            document.getElementsByClassName('content-about')[0].classList.add('hide');
         }
 
         function showProcess() {
             document.getElementsByClassName('content-process')[0].classList.remove('hide');
             document.getElementsByClassName('content-equipments')[0].classList.add('hide');
             document.getElementsByClassName('content-beers')[0].classList.add('hide');
+            document.getElementsByClassName('content-about')[0].classList.add('hide');
         }
 
         function showEquipments() {
             document.getElementsByClassName('content-equipments')[0].classList.remove('hide');
             document.getElementsByClassName('content-beers')[0].classList.add('hide');
             document.getElementsByClassName('content-process')[0].classList.add('hide');
+            document.getElementsByClassName('content-about')[0].classList.add('hide');
+        }
 
+        function showAbout() {
+            document.getElementsByClassName('content-about')[0].classList.remove('hide');
+            document.getElementsByClassName('content-beers')[0].classList.add('hide');
+            document.getElementsByClassName('content-process')[0].classList.add('hide');
+            document.getElementsByClassName('content-equipments')[0].classList.add('hide');
         }
     </script>
 

@@ -153,3 +153,19 @@ main div.hide {
     padding: 5px 10px;
     font-weight: 700;
 }
+
+.maxwidth {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .maxwidth {
+        width: 700px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .maxwidth {
+        width: 900px;
+    }
+}
