@@ -5,6 +5,7 @@
     "display": "standalone",
     "theme_color": "#ffd32a",
     "background_color": "#ffd32a",
+    "lang": "sv-SE",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -16,5 +17,5 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
+    ]
 }

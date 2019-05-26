@@ -52,6 +52,10 @@
         <p>Vi brygger olika varianter av öl. Mestadels öl gjort på enbart malt, humle, jäst och vatten.</p>
         <nav>
             <button type="button" onclick="showBeers()"><i class="fas fa-beer"></i> Ölen</button>
+<<<<<<< HEAD
+=======
+            <button type="button" onclick="showProcess()"><i class="fas fa-flask"></i> Processen</button>
+>>>>>>> add manifest
             <button type="button" onclick="showEquipments()"><i class="fas fa-toolbox"></i> Utrustningen</button>
         </nav>
     </header>
@@ -63,7 +67,7 @@
                     <section>
                         <div class="babdge">Kolsyras</div>
                         <h2>Mama´s pils</h2>
-                        <p>28 April 2019 - 10 liter - 3.5 %</p>
+                        <p>28 April 2019 - 10 liter - 3.5%</p>
                         <div className="">
                             <img class="fermentation" src="img/fermentation_batch_5.jpg" alt="Mama´s pils" />
                             <p>Mamma fyller år och får en folkis på vår första helmalt.</p>
@@ -78,7 +82,7 @@
                     <section>
                         <div class="babdge">Jäser</div>
                         <h2>Gräsänklingsölen</h2>
-                        <p>23 Maj 2019 - 10 liter - okänd %</p>
+                        <p>23 Maj 2019 - 10 liter - okänd%</p>
                         <div className="">
                             <img class="fermentation" src="img/fermentation_batch_6.jpg" alt="Gräsänklingsölen" />
                             <p>Ensam hemma. Då passar det att brygga en öl själv. Kör en kopia på förra och testar om
@@ -98,7 +102,7 @@
                 <div class="sections">
                     <section>
                         <h2>SEPTIPA XIX</h2>
-                        <p>10 liter - okänd %</p>
+                        <p>10 liter - okänd%</p>
                         <img class="fermentation" src="img/fermentation_batch_1.jpg" alt="SEPTIPA XIX" />
                         <p>Första ölen blev en IPA!</p>
                         <ul>
@@ -111,7 +115,7 @@
                     </section>
                     <section>
                         <h2>Santa's little rain beer</h2>
-                        <p>10 liter - okänd %</p>
+                        <p>10 liter - okänd%</p>
                         <img class="fermentation" src="img/fermentation_batch_2.jpg" alt="Santa's little rain beer" />
                         <p>Andra ölen blev en mörk lager</p>
                         <ul>
@@ -126,7 +130,7 @@
                     </section>
                     <section>
                         <h2>Amarillo IPA</h2>
-                        <p>10 liter - okänd %</p>
+                        <p>10 liter - okänd%</p>
                         <div class="fermentation"></div>
                         <p>Tredje blev en riktigt god öl</p>
                         <ul>
@@ -139,7 +143,7 @@
                     </section>
                     <section>
                         <h2>Pilsner'n</h2>
-                        <p>10 liter - okänd %</p>
+                        <p>10 liter - okänd%</p>
                         <img class="fermentation" src="img/fermentation_batch_4.png" alt="Pilsner'n" />
                         <p>Fjärde ölen blev en fin Pilsner</p>
                         <ul>
@@ -177,6 +181,12 @@
                 <li>Mätglas i glas</li>
             </ul>
         </div>
+<<<<<<< HEAD
+=======
+        <div class="content-process hide">
+            <h3>Ingen processbeskrivning ännu!</h3>
+        </div>
+>>>>>>> add manifest
     </main>
 
     <footer>
@@ -194,13 +204,22 @@
         }
 
         function showBeers() {
-            document.getElementsByClassName('content-equipments')[0].classList.add('hide');
             document.getElementsByClassName('content-beers')[0].classList.remove('hide');
+            document.getElementsByClassName('content-equipments')[0].classList.add('hide');
+            document.getElementsByClassName('content-process')[0].classList.add('hide');
+        }
+
+        function showProcess() {
+            document.getElementsByClassName('content-process')[0].classList.remove('hide');
+            document.getElementsByClassName('content-equipments')[0].classList.add('hide');
+            document.getElementsByClassName('content-beers')[0].classList.add('hide');
         }
 
         function showEquipments() {
             document.getElementsByClassName('content-equipments')[0].classList.remove('hide');
             document.getElementsByClassName('content-beers')[0].classList.add('hide');
+            document.getElementsByClassName('content-process')[0].classList.add('hide');
+
         }
     </script>
 
