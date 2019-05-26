@@ -133,11 +133,21 @@ nav button {
     font-size: 22px;
     cursor: pointer;
     margin-bottom: 10px;
-    margin-left: 10px;
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
 }
 
-nav button:first-child {
-    margin-left: 0;
+@media (min-width: 620px) {
+    nav button {
+        width: inherit;
+        padding: 5px;
+        margin-left: 10px;
+    }
+    
+    nav button:first-child {
+        margin-left: 0;
+    }
 }
 
 main div.hide {
