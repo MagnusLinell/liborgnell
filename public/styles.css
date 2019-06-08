@@ -1,5 +1,5 @@
 body {
-    font-family: 'Amatic SC', 'Georgia';
+    font-family: 'Amatic SC', cursive;
     text-transform: uppercase;
     font-weight: 100;
     background-color: #1e272e;
@@ -181,4 +181,9 @@ main div.hide {
     .maxwidth {
         width: 900px;
     }
+}
+
+h2 > .oldName {
+    text-decoration: line-through;
+    font-size: 28px;
 }
