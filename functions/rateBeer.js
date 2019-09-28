@@ -12,18 +12,13 @@ exports.handler = async (event, context) => {
         return methodNotAllowedError;
     }
     const params = querystring.parse(event.body);
-    console.log('event', event);
-    console.log('event.body', event.body);
-    const { beerId, code, overall } = event.body
-    if (!code) {
-        return unknownError();
-    }
+    return { statusCode: 200, body: JSON.stringify(params) };
     try {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
         await col.insertOne({
-            beerId: beerId,
-            overall: overall,
+            beerId: params.beerId,
+            overall: params.overall,
         }, { w: 1 });
         client.close();
         return {
