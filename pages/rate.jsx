@@ -9,11 +9,11 @@ const Rate = ({ query }) => {
     const [overall, setOverall] = useState(0);
     const onRate = async (e) => {
         e.preventDefault();
-        if (rate === 0 || rate > 10) {
+        if (overall === 0 || overall > 10) {
             return;
         }
         try {
-            const result = fetch('/api/beer/rate', {
+            const result = await fetch('/api/beer/rate', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

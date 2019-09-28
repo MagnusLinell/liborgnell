@@ -16,8 +16,8 @@ exports.handler = async (event, context) => {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
         await col.insertOne({
-            beerId: params.rate.beerId,
-            rate: { overall: params.rate.overall }
+            beerId: params.beerId,
+            rate: { overall: params.overall }
         }, { w: 1 });
         client.close();
         return {
