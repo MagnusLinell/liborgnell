@@ -15,7 +15,8 @@
     "querystring": "^0.2.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "serve": "^11.1.0"
+    "serve": "^11.1.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {},
   "scripts": {
