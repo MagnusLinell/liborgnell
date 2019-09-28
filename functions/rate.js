@@ -2,7 +2,7 @@
 const querystring = require('querystring');
 const ip = require('ip');
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://liborgnell:LPkeEspM1PAiUkMZ@cluster0-93bme.mongodb.net/liborgnell?retryWrites=true&w=majority";
+const uri = "mongodb+srv://liborgnell:QPpKyTF5phA6GtKn@cluster0-93bme.mongodb.net/liborgnell?retryWrites=true&w=majority";
 const dbName = 'liborgnell';
 
 const unknownError = (e) => ({ ip: ip.address(), statusCode: 500, body: JSON.stringify({ code: 500, error: { message: 'Unknown Error', trace: e } }) });
