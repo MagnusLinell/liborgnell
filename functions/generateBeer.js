@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
     try {
         const beerId = uuid();
         const code = uuid();
-        const qr = `${url}/${beerId}?code=${code}`;
+        const qr = `${url}?code=${code}&beerId=${beerId}`;
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('beers');
         await col.insertOne({ beerId, qr, code }, { w: 1 });
