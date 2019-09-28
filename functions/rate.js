@@ -14,13 +14,13 @@ exports.handler = async (event, context) => {
     }
     try {
         const params = querystring.parse(event.body);
-        const client = await MongoClient.connect(uri);
+        const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
-        const result = await col.insert([params], { w: 1 });
+        const result = await col.insertOne(params, { w: 1 });
         client.close();
         return {
             statusCode: 200,
-            body: result,
+            body: JSON.stringify(result),
             ip: ip.address(),
         };
     } catch (e) {
