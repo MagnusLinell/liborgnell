@@ -26,7 +26,8 @@ const Rate = ({ query }) => {
                     overall
                 })
             });
-            console.log(result);
+            const body = result.json();
+            console.log(body);
         } catch (e) {
             console.log(e);
         }
