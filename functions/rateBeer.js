@@ -14,15 +14,16 @@ exports.handler = async (event, context) => {
     const params = querystring.parse(event.body);
     console.log('event', event);
     console.log('event.body', event.body);
-    if (!params.code) {
+    const { beerId, code, overall } = event.body
+    if (!code) {
         return unknownError();
     }
     try {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
         await col.insertOne({
-            beerId: params.beerId,
-            overall: params.overall,
+            beerId: beerId,
+            overall: overall,
         }, { w: 1 });
         client.close();
         return {
