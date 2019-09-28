@@ -1,4 +1,4 @@
 /sitemap.xml /static/sitemap.xml
 /api/beer/rate   /.netlify/functions/rateBeer
 /api/beer/generate   /.netlify/functions/generateBeer
-/api/beer/rates   /.netlify/functions/getRates
+/api/beer/rates   /.netlify/functions/getBeers
