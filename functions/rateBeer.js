@@ -15,7 +15,10 @@ exports.handler = async (event, context) => {
         const params = querystring.parse(event.body);
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
-        await col.insertOne(params, { w: 1 });
+        await col.insertOne({
+            beerId: params.rate.beerId,
+            rate: { overall: params.rate.overall }
+        }, { w: 1 });
         client.close();
         return {
             statusCode: 200,

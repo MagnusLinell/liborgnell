@@ -2,9 +2,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MaxWidth from '../components/MaxWidth';
 import Main from '../components/Main';
-import Link from 'next/link';
 
-const Rate = ({ url: { query: { code } } }) => {
+const Rate = ({ code }) => {
     const rate = async () => {
         try {
             const result = fetch('/api/beer/rate', {
@@ -38,6 +37,11 @@ const Rate = ({ url: { query: { code } } }) => {
             <Footer />
         </>
     );
+}
+
+
+Rate.getInitialProps = ({ query }) => {
+    return { query }
 }
 
 export default Rate;
