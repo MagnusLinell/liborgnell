@@ -3,14 +3,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.liborgnell.com/</loc>
-      <lastmod>2019-09-04</lastmod>
+      <lastmod>2019-09-28</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://www.liborgnell.com/</loc>
-      <lastmod>2019-09-04</lastmod>
+      <loc>https://www.liborgnell.com/about</loc>
+      <lastmod>2019-09-28</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
+      <priority>0.5</priority>
+   </url>
+   <url>
+      <loc>https://www.liborgnell.com/process</loc>
+      <lastmod>2019-09-28</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+   </url>
+      <url>
+      <loc>https://www.liborgnell.com/equipments</loc>
+      <lastmod>2019-09-28</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
    </url>
 </urlset> 

@@ -1,18 +1,32 @@
-import React from 'react'
-import App from 'next/app'
-import Head from 'next/head'
+import React from 'react';
+import App from 'next/app';
+import Head from 'next/head';
+import './_app.less';
 
 class MyApp extends App {
+    setGoogleTags() {
+        return {
+            __html:
+                `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag() {dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'UA-140775141-1');
+                `
+        };
+    }
+
     render() {
-        const { Component, pageProps } = this.props
+        const { Component, pageProps } = this.props;
+
+
         return (
             <>
                 <Head>
                     <title>Liborgnell</title>
                     <meta name="description" content="Ett litet hembryggeri som brygger med kärlek och känsla" />
                     <meta name="og:title" property="og:title" content="Liborgnell" />
-                    <meta name="og:description" property="og:description"
-                        content="Ett litet hembryggeri som brygger med kärlek och känsla" />
+                    <meta name="og:description" property="og:description" content="Ett litet hembryggeri som brygger med kärlek och känsla" />
                     <meta name="og:type" property="og:type" content="website" />
                     <meta name="robots" content="index, follow" />
                     <link href="/" rel="canonical" />
@@ -27,15 +41,8 @@ class MyApp extends App {
                     <meta charSet="utf-8" />
 
                     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>
-                    <script async>
-                        {`
-                            window.dataLayer = window.dataLayer || [];
-                            function gtag() {dataLayer.push(arguments); }
-                            gtag('js', new Date());
-                            gtag('config', 'UA-140775141-1');
-                        `}
 
-                    </script>
+                    <script async dangerouslySetInnerHTML={this.setGoogleTags()} />
 
                     <link
                         rel="stylesheet"
@@ -55,45 +62,6 @@ class MyApp extends App {
                         crossOrigin="anonymous"
                         lazyload="true"
                     />
-                    <style jsx global>
-                        {`
-                        body { 
-                            font-family: 'Amatic SC', cursive;
-                            text-transform: uppercase;
-                            font-weight: 100;
-                            background-color: #1e272e;
-                            color: #d2dae2;
-                        }
-
-                        h1 {
-                            margin: 0;
-                            font-size: 56px;
-                        }
-
-                        h2 {
-                            margin: 0;
-                            font-size: 32px;
-                        }
-
-                        h3 {
-                            margin: 0;
-                            font-size: 24px;
-                            line-height: 2;
-                        }
-
-                        h4 {
-                            margin: 0;
-                            font-size: 20px;    
-                            line-height: 1.5;
-                        }
-
-                        p {
-                            margin: 0 0 10px 0;
-                            font-size: 20px;
-                            font-weight: 500;
-                        }
-                        `}
-                    </style>
                 </Head>
                 <Component {...pageProps} />
             </>
