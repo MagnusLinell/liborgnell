@@ -9,7 +9,8 @@ const Rate = ({ query }) => {
     const [overall, setOverall] = useState(0);
     const onRate = async (e) => {
         e.preventDefault();
-        if (overall === 0 || overall > 10) {
+        console.log({ overall });
+        if (overall < 1 || overall > 10) {
             return;
         }
         try {
@@ -21,7 +22,8 @@ const Rate = ({ query }) => {
                 },
                 body: JSON.stringify({
                     beerId: query.beerId,
-                    rate: { overall }
+                    code: query.code,
+                    overall
                 })
             });
             console.log(result);
@@ -29,6 +31,15 @@ const Rate = ({ query }) => {
             console.log(e);
         }
     };
+
+    const updateOverall = (e) => {
+        try {
+            setOverall(parseInt(e.target.value);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     return (
         <>
             <Header />
@@ -37,7 +48,7 @@ const Rate = ({ query }) => {
                     <form className={styles.form} onSubmit={onRate}>
                         <h3>Betygsätt ölen {query.code}</h3>
                         <label htmlFor="overall">Övergripande betyg (1-10)</label>
-                        <input name="overall" type="number" min="1" max="10" onChange={(e) => setOverall(e.target.value)} />
+                        <input name="overall" type="number" min="1" max="10" onBlur={updateOverall} onChange={updateOverall} />
                         <button type="submit">Betygsätt</button>
                     </form>
                 </MaxWidth>
