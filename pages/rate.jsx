@@ -34,7 +34,7 @@ const Rate = ({ query }) => {
 
     const updateOverall = (e) => {
         try {
-            setOverall(parseInt(e.target.value);
+            setOverall(parseInt(e.target.value));
         } catch (e) {
             console.error(e);
         }
