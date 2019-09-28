@@ -7,4 +7,10 @@
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
+   <url>
+      <loc>https://www.liborgnell.com/</loc>
+      <lastmod>2019-09-04</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+   </url>
 </urlset> 

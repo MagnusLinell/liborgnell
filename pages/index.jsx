@@ -8,7 +8,7 @@ import Image from '../components/Image';
 import OldName from '../components/OldName';
 import List from '../components/List';
 import Item from '../components/Item';
-import styles from './beers.less';
+import styles from './index.less';
 
 const Beers = () => {
     return (
@@ -21,7 +21,7 @@ const Beers = () => {
                         <Section>
                             <h2>Ölympiad 2019</h2>
                             <p>10 liter - 6,1%</p>
-                            <Image className={styles.fermentation} src="img/fermentation_batch_7.jpg" alt="Ölympiad 2019" />
+                            <Image className={styles.fermentation} src="/static/img/fermentation_batch_7.jpg" alt="Ölympiad 2019" />
                             <p>Vi ordnade en olympiad med femkamp. Där av namnet ölympiad. En mycket god
                                 modern saison, vår hittils godaste öl och första gången med klarningsmedel.</p>
                             <List>
@@ -37,7 +37,7 @@ const Beers = () => {
                             <h2>Angry neighbour <OldName text="Gräsänklingsölen" /></h2>
                             <p>23 Maj 2019 - ca 2 liter - okänd%</p>
                             <div className="">
-                                <Image className={styles.fermentation} src="img/fermentation_batch_6.jpg" alt="Gräsänklingsölen" />
+                                <Image className={styles.fermentation} src="/static/img/fermentation_batch_6.jpg" alt="Gräsänklingsölen" />
                                 <p>Ensam hemma. Då passar det att brygga en öl själv. Kör en kopia på förra och testar
                                     om det går att få upp alkoholhalten.</p>
                                 <p>Tappkranen läcker under jäsning och 6 liter öl försvinner ner till grannen. Nytt namn
@@ -54,7 +54,7 @@ const Beers = () => {
                             <h2>Mama´s pils</h2>
                             <p>28 April 2019 - 8 liter - 3.5%</p>
                             <div className="">
-                                <Image className={styles.fermentation} src="img/fermentation_batch_5.jpg" alt="Mama´s pils" />
+                                <Image className={styles.fermentation} src="/static/img/fermentation_batch_5.jpg" alt="Mama´s pils" />
                                 <p>Mamma fyller år och får en folkis på vår första helmalt.</p>
                                 <List>
                                     <Item><strong>Stil:</strong> Amarillo Pale Ale</Item>
@@ -72,7 +72,7 @@ const Beers = () => {
                         <Section>
                             <h2>Pilsner'n</h2>
                             <p>10 liter - okänd%</p>
-                            <Image className={styles.fermentation} src="img/fermentation_batch_4.jpg" alt="Pilsner'n" />
+                            <Image className={styles.fermentation} src="/static/img/fermentation_batch_4.jpg" alt="Pilsner'n" />
                             <p>Fjärde ölen blev en fin Pilsner</p>
                             <List>
                                 <Item><strong>Gäst:</strong> Malin Borg</Item>
@@ -99,7 +99,7 @@ const Beers = () => {
                         <Section>
                             <h2>Santa's little rain beer</h2>
                             <p>10 liter - okänd%</p>
-                            <Image className={styles.fermentation} src="img/fermentation_batch_2.jpg"
+                            <Image className={styles.fermentation} src="/static/img/fermentation_batch_2.jpg"
                                 alt="Santa's little rain beer" />
                             <p>Andra ölen blev en mörk lager</p>
                             <List>
@@ -115,7 +115,7 @@ const Beers = () => {
                         <Section>
                             <h2>SEPTIPA XIX</h2>
                             <p>10 liter - okänd%</p>
-                            <Image className={styles.fermentation} src="img/fermentation_batch_1.jpg" alt="SEPTIPA XIX" />
+                            <Image className={styles.fermentation} src="/static/img/fermentation_batch_1.jpg" alt="SEPTIPA XIX" />
                             <p>Första ölen blev en IPA!</p>
                             <List>
                                 <Item><strong>Stil:</strong> India Pale Ale (IPA)</Item>
