@@ -13,11 +13,11 @@ exports.handler = async (event, context) => {
         const qr = `${url}?code=${code}&beerId=${beerId}`;
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('beers');
-        await col.insertOne({ beerId, qr, code }, { w: 1 });
+        const result = await col.insertOne({ beerId, qr, code }, { w: 1 });
         client.close();
         return {
             statusCode: 200,
-            body: JSON.stringify({ statusCode: 200, body: { status: 'OK' } }),
+            body: JSON.stringify(result.ops),
         };
     } catch (e) {
         return unknownError(e);
