@@ -45,15 +45,17 @@ const Beers = ({ beers }) => {
 
     const createBeer = (beer, index) => {
         const badgeText = getBadgeText(beer);
-        const rating = ratings.find(rating => rating.beerId === beer.beerId);
-        const ratingIcons = rating ? [...Array(10)].map((num, index) => {
-            return index < rating.overall ? <i className={classNames('fas', 'fa-beer', styles.rate)} /> : <i className={classNames('fas', 'fa-beer', styles.rate, styles.gray)} />;
+        const beerRatings = ratings.filter(rating => rating.beerId === beer.beerId);
+        const overallRating = beerRatings.length > 0 ? beerRatings.map(beerRating => beerRating.overall).reduce((acc, item) => (acc + item), 0) / beerRatings.length : 0;
+        const ratingIcons = overallRating > 0 ? [...Array(10)].map((num, index) => {
+            return index < overallRating ? <i className={classNames('fas', 'fa-beer', styles.rate)} /> : <i className={classNames('fas', 'fa-beer', styles.rate, styles.gray)} />;
         }) : [];
+        console.log({ beerRatings, overallRating, ratingIcons });
         return (
             <Section key={index}>
                 {badgeText && <Badge text={badgeText} />}
                 <h2>{beer.title} {beer.oldTitle && <OldName text={beer.oldTitle} />}</h2>
-                {rating && <div className={styles.rating}>{ratingIcons}</div>}
+                {overallRating > 0 && <div className={styles.rating}>{ratingIcons}</div>}
                 <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'okänd'}%</p>
                 {beer.image && <Image className={styles.fermentation} src={beer.image.url} alt={beer.title} />}
                 <p>{beer.description}</p>
