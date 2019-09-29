@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
         return methodNotAllowedError;
     }
     const params = querystring.parse(event.body);
-    const { beerId, overall } = event.body;
+    const { beerId, overall } = params;
     return { statusCode: 200, body: JSON.stringify({ raw: event.body, beerId, overall }) };
     try {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
