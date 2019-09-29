@@ -9,6 +9,7 @@ import Image from '../components/Image';
 import OldName from '../components/OldName';
 import List from '../components/List';
 import Item from '../components/Item';
+import Badge from '../components/Badge';
 import styles from './index.less';
 
 
@@ -16,9 +17,25 @@ const Beers = ({ beers }) => {
     const beersWithMaltExtract = beers.filter(beer => beer.type === 'malt extract');
     const beersWithWholeMalt = beers.filter(beer => beer.type === 'whole malt');
 
+    const getBadgeText = (beer) => {
+        const brewTime = new Date(beer.brewedAt).getTime();
+        const tappTime = new Date(beer.tappedAt).getTime();
+        const doneTime = new Date(beer.doneAt).getTime();
+        const nowTime = new Date().getTime();
+        if (nowTime >= tappTime && nowTime < doneTime) {
+            return 'Kolsyras';
+        }
+        if (nowTime >= brewTime && nowTime < tappTime) {
+            return 'Jäser';
+        }
+        return null;
+    };
+
     const createBeer = (beer, index) => {
+        const badgeText = getBadgeText(beer);
         return (
             <Section key={index}>
+                {badgeText && <Badge text={badgeText} />}
                 <h2>{beer.title} {beer.oldTitle && <OldName text={beer.oldTitle} />}</h2>
                 <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'okänd'}%</p>
                 {beer.image && <Image className={styles.fermentation} src={beer.image.url} alt={beer.title} />}
