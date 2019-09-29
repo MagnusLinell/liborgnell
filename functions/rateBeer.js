@@ -1,5 +1,4 @@
 
-const querystring = require('querystring');
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://liborgnell:QPpKyTF5phA6GtKn@cluster0-93bme.mongodb.net/liborgnell?retryWrites=true&w=majority";
 const dbName = 'liborgnell';
@@ -11,15 +10,13 @@ exports.handler = async (event, context) => {
     if (event.httpMethod !== "POST") {
         return methodNotAllowedError;
     }
-    const params = querystring.parse(event.body);
     const { beerId, overall } = JSON.parse(event.body);
-    return { statusCode: 200, body: JSON.stringify({ event, raw: event.body, beerId, overall }) };
     try {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
         await col.insertOne({
-            beerId: params.beerId,
-            overall: params.overall,
+            beerId,
+            overall,
         }, { w: 1 });
         client.close();
         return {
