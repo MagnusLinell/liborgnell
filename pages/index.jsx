@@ -50,7 +50,6 @@ const Beers = ({ beers }) => {
         const ratingIcons = overallRating > 0 ? [...Array(10)].map((num, index) => {
             return index < overallRating ? <i className={classNames('fas', 'fa-beer', styles.rate)} /> : <i className={classNames('fas', 'fa-beer', styles.rate, styles.gray)} />;
         }) : [];
-        console.log({ beerRatings, overallRating, ratingIcons });
         return (
             <Section key={index}>
                 {badgeText && <Badge text={badgeText} />}
