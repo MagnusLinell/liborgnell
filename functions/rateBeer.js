@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
     }
     const params = querystring.parse(event.body);
     const { beerId, overall } = event.body;
-    return { statusCode: 200, body: { raw: event.body, beerId, overall } };
+    return { statusCode: 200, body: JSON.stringify({ raw: event.body, beerId, overall }) };
     try {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
