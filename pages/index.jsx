@@ -54,7 +54,7 @@ const Beers = ({ beers }) => {
             <Section key={index}>
                 {badgeText && <Badge text={badgeText} />}
                 <h2>{beer.title} {beer.oldTitle && <OldName text={beer.oldTitle} />}</h2>
-                {overallRating > 0 && <div className={styles.rating}>{ratingIcons}</div>}
+                {overallRating > 0 && <div className={styles.rating}>{ratingIcons} ({beerRatings.length})</div>}
                 <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'okänd'}%</p>
                 {beer.image && <Image className={styles.fermentation} src={beer.image.url} alt={beer.title} />}
                 <p>{beer.description}</p>
