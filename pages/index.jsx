@@ -21,9 +21,12 @@ const Beers = ({ beers }) => {
     const beersWithWholeMalt = beers.filter(beer => beer.type === 'whole malt');
 
     useEffect(() => {
-        const beerRatesReponse = await fetch('https://www.liborgnell.com/api/beer/rates');
-        const beerRates = await beerRatesReponse.json();
-        setRatings(beerRates);
+        const fetchRatings = async () => {
+            const beerRatesReponse = await fetch('/api/beer/rates');
+            const beerRates = await beerRatesReponse.json();
+            setRatings(beerRates);
+        }
+        fetchRatings();
     }, []);
 
     const getBadgeText = (beer) => {
