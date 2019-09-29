@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import fetch from 'isomorphic-unfetch';
 import classNames from 'classnames';
 import Header from '../components/Header';
@@ -14,9 +15,16 @@ import Badge from '../components/Badge';
 import styles from './index.less';
 
 
-const Beers = ({ beers, ratings }) => {
+const Beers = ({ beers }) => {
+    const [ratings, setRatings] = useState([]);
     const beersWithMaltExtract = beers.filter(beer => beer.type === 'malt extract');
     const beersWithWholeMalt = beers.filter(beer => beer.type === 'whole malt');
+
+    useEffect(() => {
+        const beerRatesReponse = await fetch('https://www.liborgnell.com/api/beer/rates');
+        const beerRates = await beerRatesReponse.json();
+        setRatings(beerRates);
+    }, []);
 
     const getBadgeText = (beer) => {
         const brewTime = new Date(beer.brewedAt).getTime();
@@ -90,9 +98,7 @@ Beers.getInitialProps = async () => {
         const image = images.find(image => (image && image.sys.id) === (beer.image && beer.image.sys.id));
         return { ...beer, image: image && { ...image.fields.file } };
     });
-    const beerRatesReponse = await fetch('https://www.liborgnell.com/api/beer/rates');
-    const beerRates = await beerRatesReponse.json();
-    return { beers: mappedBeers, ratings: beerRates };
+    return { beers: mappedBeers };
 }
 
 export default Beers;
