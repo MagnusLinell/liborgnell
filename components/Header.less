@@ -10,7 +10,10 @@
 }
 
 .nav {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
+    width: 100%;
 }
 
 .nav a i {
@@ -25,13 +28,16 @@
     cursor: pointer;
     margin-bottom: 10px;
     margin-left: 0;
-    width: 100%;
     padding: 10px;
     text-decoration: none;
     color: #1e272e;
 }
 
 @media (min-width: 620px) {
+    .nav {
+        display: flex;
+        flex-direction: row;
+    }
     .nav a {
         width: inherit;
         padding: 5px;

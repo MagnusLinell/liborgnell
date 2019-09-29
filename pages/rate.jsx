@@ -13,7 +13,7 @@ const Rate = ({ query }) => {
             return;
         }
         try {
-            const result = await fetch('/api/beer/rate', {
+            await fetch('/api/beer/rate', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -25,10 +25,8 @@ const Rate = ({ query }) => {
                     overall
                 })
             });
-            const body = result.json();
-            console.log(body);
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     };
 
@@ -46,10 +44,12 @@ const Rate = ({ query }) => {
             <Main center>
                 <MaxWidth>
                     <form className={styles.form} onSubmit={onRate}>
-                        <h3>Betygsätt ölen {query.code} {query.beerId}</h3>
-                        <label htmlFor="overall">Övergripande betyg (1-10)</label>
-                        <input name="overall" type="number" min="1" max="10" onBlur={updateOverall} onChange={updateOverall} />
-                        <button type="submit">Betygsätt</button>
+                        <h3>Betygsätt ölen</h3>
+                        <label className={styles.label} htmlFor="overall">Övergripande betyg (1-10)</label>
+                        <div>
+                            <input className={styles.input} name="overall" type="number" min="1" max="10" onBlur={updateOverall} onChange={updateOverall} />
+                            <button className={styles.button} type="submit">Betygsätt</button>
+                        </div>
                     </form>
                 </MaxWidth>
             </Main>
