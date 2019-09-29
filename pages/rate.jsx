@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Router from 'next/router'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MaxWidth from '../components/MaxWidth';
@@ -24,6 +25,9 @@ const Rate = ({ query }) => {
                     code: query.code,
                     overall
                 })
+            });
+            Router.push({
+                pathname: '/',
             });
         } catch (e) {
             console.error(e);
