@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-unfetch';
+import classNames from 'classnames';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Main from '../components/Main';
@@ -13,7 +14,7 @@ import Badge from '../components/Badge';
 import styles from './index.less';
 
 
-const Beers = ({ beers }) => {
+const Beers = ({ beers, ratings }) => {
     const beersWithMaltExtract = beers.filter(beer => beer.type === 'malt extract');
     const beersWithWholeMalt = beers.filter(beer => beer.type === 'whole malt');
 
@@ -33,10 +34,15 @@ const Beers = ({ beers }) => {
 
     const createBeer = (beer, index) => {
         const badgeText = getBadgeText(beer);
+        const rating = ratings.find(rating => rating.beerId === beer.beerId);
+        const ratingIcons = rating ? [...Array(10)].map((num, index) => {
+            return index < rating.overall ? <i className={classNames('fas', 'fa-beer', styles.rate)} /> : <i className={classNames('fas', 'fa-beer', styles.rate, styles.gray)} />;
+        }) : [];
         return (
             <Section key={index}>
                 {badgeText && <Badge text={badgeText} />}
                 <h2>{beer.title} {beer.oldTitle && <OldName text={beer.oldTitle} />}</h2>
+                {rating && <div className={styles.rating}>{ratingIcons}</div>}
                 <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'okänd'}%</p>
                 {beer.image && <Image className={styles.fermentation} src={beer.image.url} alt={beer.title} />}
                 <p>{beer.description}</p>
@@ -84,7 +90,9 @@ Beers.getInitialProps = async () => {
         const image = images.find(image => (image && image.sys.id) === (beer.image && beer.image.sys.id));
         return { ...beer, image: image && { ...image.fields.file } };
     });
-    return { beers: mappedBeers };
+    const beerRatesReponse = await fetch('https://www.liborgnell.com/api/beer/rates');
+    const beerRates = await beerRatesReponse.json();
+    return { beers: mappedBeers, ratings: beerRates };
 }
 
 export default Beers;
