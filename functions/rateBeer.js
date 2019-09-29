@@ -12,7 +12,8 @@ exports.handler = async (event, context) => {
         return methodNotAllowedError;
     }
     const params = querystring.parse(event.body);
-    return { statusCode: 200, body: JSON.stringify(event.body.overall) };
+    const { beerId, overall } = event.body;
+    return { statusCode: 200, body: { raw: event.body, beerId, overall } };
     try {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
