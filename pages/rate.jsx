@@ -9,7 +9,6 @@ const Rate = ({ query }) => {
     const [overall, setOverall] = useState(0);
     const onRate = async (e) => {
         e.preventDefault();
-        console.log({ overall });
         if (overall < 1 || overall > 10) {
             return;
         }
@@ -47,7 +46,7 @@ const Rate = ({ query }) => {
             <Main center>
                 <MaxWidth>
                     <form className={styles.form} onSubmit={onRate}>
-                        <h3>Betygsätt ölen {query.code}</h3>
+                        <h3>Betygsätt ölen {query.code} {query.beerId}</h3>
                         <label htmlFor="overall">Övergripande betyg (1-10)</label>
                         <input name="overall" type="number" min="1" max="10" onBlur={updateOverall} onChange={updateOverall} />
                         <button type="submit">Betygsätt</button>
