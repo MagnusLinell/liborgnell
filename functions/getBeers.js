@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
     try {
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('rates');
-        const results = col.find({}).toArray();
+        const results = await col.find({}).toArray();
         client.close();
         return {
             statusCode: 200,
