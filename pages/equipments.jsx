@@ -11,7 +11,7 @@ const Equipments = () => {
             <Header />
             <Main center>
                 <MaxWidth>
-                    <h3>Utrustning</h3>
+                    <h3>Equipments</h3>
                     <h4>Kokkärl</h4>
                     <List>
                         <Item>10 literskastrull</Item>

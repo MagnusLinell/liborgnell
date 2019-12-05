@@ -9,8 +9,8 @@ const Process = () => {
             <Header />
             <Main center>
                 <MaxWidth>
-                    <h3>Tillverkningsprocessen</h3>
-                    <p>BIAB-metoden - Brew In A Bag</p>
+                    <h3>The brew process</h3>
+                    <p>BIAB method - Brew In A Bag</p>
                     <h4>Lakning</h4>
                     <p>Värm upp vatten till 71 grader. Tillsätt krossad malt. Låt stå i 67 grader under 60 min.</p>
                     <h4>Kokning</h4>

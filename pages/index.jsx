@@ -35,10 +35,10 @@ const Beers = ({ beers }) => {
         const doneTime = new Date(beer.doneAt).getTime();
         const nowTime = new Date().getTime();
         if (nowTime >= tappTime && nowTime < doneTime) {
-            return 'Kolsyras';
+            return 'Carbonating';
         }
         if (nowTime >= brewTime && nowTime < tappTime) {
-            return 'Jäser';
+            return 'Fermenting';
         }
         return null;
     };
@@ -55,15 +55,15 @@ const Beers = ({ beers }) => {
                 {badgeText && <Badge text={badgeText} />}
                 <h2>{beer.title} {beer.oldTitle && <OldName text={beer.oldTitle} />}</h2>
                 {overallRating > 0 && <div className={styles.rating}>{ratingIcons} ({beerRatings.length})</div>}
-                <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'okänd'}%</p>
+                <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'unknown'}%</p>
                 {beer.image && <Image className={styles.fermentation} src={beer.image.url} alt={beer.title} />}
                 <p>{beer.description}</p>
                 <List>
-                    {beer.guest && <Item><strong>Stil:</strong> {beer.guest}</Item>}
-                    {beer.style && <Item><strong>Stil:</strong> {beer.style}</Item>}
-                    {beer.hop && <Item><strong>Humle:</strong> {beer.hop}</Item>}
+                    {beer.guest && <Item><strong>Guest:</strong> {beer.guest}</Item>}
+                    {beer.style && <Item><strong>Style:</strong> {beer.style}</Item>}
+                    {beer.hop && <Item><strong>Hop:</strong> {beer.hop}</Item>}
                     {beer.malt && <Item><strong>Malt:</strong> {beer.malt}</Item>}
-                    {beer.yeast && <Item><strong>Jäst:</strong> {beer.yeast}</Item>}
+                    {beer.yeast && <Item><strong>Yeast:</strong> {beer.yeast}</Item>}
                     {beer.extra && <Item><strong>Extra:</strong> {beer.extra}</Item>}
                 </List>
                 {beer.linkUrl && (<a href={beer.linkUrl} rel="noreferrer noopener nofollow">{beer.linkText}</a>)}
@@ -76,13 +76,13 @@ const Beers = ({ beers }) => {
             <Header />
             <Main>
                 <Article>
-                    <h3>Bryggt på helmalt</h3>
+                    <h3>Brewed on whole malt with BIAB</h3>
                     <Sections>
                         {beersWithWholeMalt.map(createBeer)}
                     </Sections>
                 </Article>
                 <Article>
-                    <h3>Bryggt på maltextrakt</h3>
+                    <h3>Brewed on malt extract</h3>
                     <Sections>
                         {beersWithMaltExtract.map(createBeer)}
                     </Sections>

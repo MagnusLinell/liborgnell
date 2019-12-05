@@ -48,11 +48,11 @@ const Rate = ({ query }) => {
             <Main center>
                 <MaxWidth>
                     <form className={styles.form} onSubmit={onRate}>
-                        <h3>Betygsätt ölen</h3>
-                        <label className={styles.label} htmlFor="overall">Övergripande betyg (1-10)</label>
+                        <h3>Rate the beer</h3>
+                        <label className={styles.label} htmlFor="overall">Overall rate (1-10)</label>
                         <div>
                             <input className={styles.input} name="overall" type="number" min="1" max="10" onBlur={updateOverall} onChange={updateOverall} />
-                            <button className={styles.button} type="submit">Betygsätt</button>
+                            <button className={styles.button} type="submit">Rate</button>
                         </div>
                     </form>
                 </MaxWidth>

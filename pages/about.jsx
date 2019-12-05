@@ -9,8 +9,8 @@ const About = () => {
             <Header />
             <Main center>
                 <MaxWidth>
-                    <h3>Ölbryggarna</h3>
-                    <p>Paret Veronica Borg och Magnus Linell har sedan hösten 2018 bryggt öl på både maltextrakt och helmalt. Senast brygger vi på BIAB-metoden hemma i köket i Sollentuna.</p>
+                    <h3>Brewers</h3>
+                    <p>Magnus Linell has since autumn 2018 brewed beer on both extract and whole malt. I brew with the BIAB method since early 2019 in the kitchen in Sollentuna, Sweden.</p>
                 </MaxWidth>
             </Main>
             <Footer />
