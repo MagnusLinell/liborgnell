@@ -2,6 +2,7 @@
 /api/beer/rate   /.netlify/functions/rateBeer 200
 /api/beer/generate   /.netlify/functions/generateBeer 200
 /api/beer/rates   /.netlify/functions/getBeers 200
+/manifest.json /static/manifest.json 200
 
 https://www.brewbang.se/* https://www.brewbang.com/:splat 301!
 https://brewbang.se/* https://www.brewbang.com/:splat 301!
