@@ -56,7 +56,7 @@ const Beers = ({ beers }) => {
                 <h2>{beer.title} {beer.oldTitle && <OldName text={beer.oldTitle} />}</h2>
                 {overallRating > 0 && <div className={styles.rating}>{ratingIcons} ({beerRatings.length})</div>}
                 <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'unknown'}%</p>
-                {beer.image && <Image className={styles.fermentation} src={`${beer.image.url}?fm=webp`} alt={beer.title} />}
+                {beer.image && <Image className={styles.fermentation} height={beer.image.details.image.height} width={beer.image.details.image.width} src={`${beer.image.url}?fm=webp`} alt={beer.title} />}
                 <p>{beer.description}</p>
                 <List>
                     {beer.guest && <Item><strong>Guest:</strong> {beer.guest}</Item>}
