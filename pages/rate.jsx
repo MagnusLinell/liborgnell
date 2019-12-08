@@ -6,6 +6,7 @@ import MaxWidth from '../components/MaxWidth';
 import Main from '../components/Main';
 import styles from './rate.less';
 import HtmlHead from '../components/HtmlHead';
+import fetch from 'isomorphic-unfetch';
 
 const Rate = ({ query, page }) => {
     const [overall, setOverall] = useState(0);

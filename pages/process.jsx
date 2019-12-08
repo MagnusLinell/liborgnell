@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import MaxWidth from '../components/MaxWidth';
 import Main from '../components/Main';
 import HtmlHead from '../components/HtmlHead';
+import fetch from 'isomorphic-unfetch';
 
 const Process = ({page}) => {
     return (

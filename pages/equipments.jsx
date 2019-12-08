@@ -5,6 +5,7 @@ import Main from '../components/Main';
 import List from '../components/List';
 import Item from '../components/Item';
 import HtmlHead from '../components/HtmlHead';
+import fetch from 'isomorphic-unfetch';
 
 const Equipments = ({ page }) => {
     return (
@@ -41,7 +42,6 @@ const Equipments = ({ page }) => {
         </>
     );
 }
-
 
 Equipments.getInitialProps = async () => {
     const url = '/equipments';
