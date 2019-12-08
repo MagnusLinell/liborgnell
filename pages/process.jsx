@@ -2,10 +2,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MaxWidth from '../components/MaxWidth';
 import Main from '../components/Main';
+import HtmlHead from '../components/HtmlHead';
 
-const Process = () => {
+const Process = ({page}) => {
     return (
         <>
+            <HtmlHead page={page} />
             <Header />
             <Main center>
                 <MaxWidth>
@@ -29,5 +31,12 @@ const Process = () => {
         </>
     );
 }
+
+Process.getInitialProps = async () => {
+    const url = '/process';
+    const response =  await fetch(`https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=page&include=1&fields.url=${url}`);
+    const body = await response.json();
+    return { page: body.items[0].fields };
+};
 
 export default Process;

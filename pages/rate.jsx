@@ -5,8 +5,9 @@ import Footer from '../components/Footer';
 import MaxWidth from '../components/MaxWidth';
 import Main from '../components/Main';
 import styles from './rate.less';
+import HtmlHead from '../components/HtmlHead';
 
-const Rate = ({ query }) => {
+const Rate = ({ query, page }) => {
     const [overall, setOverall] = useState(0);
     const onRate = async (e) => {
         e.preventDefault();
@@ -44,6 +45,7 @@ const Rate = ({ query }) => {
 
     return (
         <>
+            <HtmlHead page={page} />
             <Header />
             <Main center>
                 <MaxWidth>
@@ -62,9 +64,11 @@ const Rate = ({ query }) => {
     );
 }
 
-
-Rate.getInitialProps = ({ query }) => {
-    return { query }
-}
+Rate.getInitialProps = async ({query}) => {
+    const url = '/rate';
+    const response =  await fetch(`https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=page&include=1&fields.url=${url}`);
+    const body = await response.json();
+    return { query, page: body.items[0].fields };
+};
 
 export default Rate;

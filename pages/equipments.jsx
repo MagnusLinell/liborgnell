@@ -4,10 +4,12 @@ import MaxWidth from '../components/MaxWidth';
 import Main from '../components/Main';
 import List from '../components/List';
 import Item from '../components/Item';
+import HtmlHead from '../components/HtmlHead';
 
-const Equipments = () => {
+const Equipments = ({ page }) => {
     return (
         <>
+            <HtmlHead page={page} />
             <Header />
             <Main center>
                 <MaxWidth>
@@ -39,5 +41,13 @@ const Equipments = () => {
         </>
     );
 }
+
+
+Equipments.getInitialProps = async () => {
+    const url = '/equipments';
+    const response =  await fetch(`https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=page&include=1&fields.url=${url}`);
+    const body = await response.json();
+    return { page: body.items[0].fields };
+};
 
 export default Equipments;

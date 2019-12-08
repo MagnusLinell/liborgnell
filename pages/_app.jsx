@@ -32,15 +32,9 @@ class MyApp extends App {
         return (
             <>
                 <Head>
-                    <title>Brewbang</title>
-                    <meta name="description" content="Home brew with a BANG! I brew mixed styles of beers. Mostly beer made on malt, hop, yeast and water." />
-                    <meta name="og:title" property="og:title" content="Brewbang" />
-                    <meta name="og:description" property="og:description" content="Home brew with a BANG! I brew mixed styles of beers. Mostly beer made on malt, hop, yeast and water." />
-                    <meta name="og:type" property="og:type" content="website" />
-                    <meta name="robots" content="index, follow" />
-                    <link href="/" rel="canonical" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=1" />
                     <meta property="og:site_name" content="Brewbang" />
+                    <meta name="og:type" property="og:type" content="website" />
                     <meta name="theme-color" content="#ffd32a" />
                     <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
                     <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
@@ -50,7 +44,7 @@ class MyApp extends App {
                     <meta charSet="utf-8" />
 
                     <link rel="preconnect" href="https://images.ctfassets.net/" crossOrigin />
-                    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+                    <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin />
                 </Head>
                 <link
                         rel="stylesheet"
