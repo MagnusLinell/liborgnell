@@ -45,6 +45,7 @@ class MyApp extends App {
 
                     <script async dangerouslySetInnerHTML={this.setGoogleTags()} />
 
+                    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
                     <link
                         rel="stylesheet"
                         type="text/css"

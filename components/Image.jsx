@@ -13,7 +13,7 @@ const Image = ({ src, alt, width, height, className }) => {
             alt={alt}
             height={height}
             width={width}
-            debounce={false}
+            debounce="false"
             src={src}
         />
     );
