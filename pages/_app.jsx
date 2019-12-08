@@ -49,21 +49,21 @@ class MyApp extends App {
                     <link rel="manifest" href="/static/manifest.json" />
                     <meta charSet="utf-8" />
 
-                    {consent === 'true' && <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>}
-
-                    {consent === 'true' && <script async dangerouslySetInnerHTML={this.setGoogleTags()} />}
-
+                    <link rel="preconnect" href="https://images.ctfassets.net/" crossOrigin />
                     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-                    <link
+                </Head>
+                <link
                         rel="stylesheet"
                         type="text/css"
                         href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"
                         lazyload="true"
                         async
+                        defer
                     />
-                </Head>
                 <Cookies />
                 <Component {...pageProps} />
+                {consent === 'true' && <script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>}
+                {consent === 'true' && <script async defer dangerouslySetInnerHTML={this.setGoogleTags()} />}
             </>
         );
     }
