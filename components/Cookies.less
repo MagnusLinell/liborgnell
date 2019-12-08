@@ -1,18 +1,28 @@
+.cookieContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 .cookies {
-    background-color: #ffd32a;
-    color: #1e272e;
+    background-color: #1e272e;
+    color: #ffd32a;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     font-size: 20px;
-    position: fixed;
     bottom: 10px;
     z-index: 10;
-    max-width: 300px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    border-bottom: 1px solid #1e272e;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
 }
 
 .icon {
@@ -22,6 +32,11 @@
 
 .buttons {
     margin-top: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    @media (min-width: 768px) {
+        flex-direction: row;
+     }
 }
 
 .button {
@@ -33,8 +48,25 @@
     padding: 5px;
     text-decoration: none;
     color: #1e272e;
+    margin-bottom: 10px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+       margin-bottom: 0;
+    }
 }
 
 .button:first-child {
     margin-right: 10px;;
+}
+
+.optOut {
+    text-align: right;
+}
+
+.link {
+    background: none;
+    border: none;
+    color: #d2dae2;
+    cursor: pointer;
 }

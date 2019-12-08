@@ -6,6 +6,12 @@ import './_app.less';
 import Cookies from '../components/Cookies';
 
 class MyApp extends App {
+    componentDidMount() {
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js").catch(err => console.error("Service worker registration failed", err));
+        }
+    }
+
     setGoogleTags() {
         return {
             __html:
@@ -40,7 +46,7 @@ class MyApp extends App {
                     <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
                     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
                     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
-                    <link rel="manifest" href="/static/manifest.webmanifest" />
+                    <link rel="manifest" href="/static/manifest.json" />
                     <meta charSet="utf-8" />
 
                     {consent === 'true' && <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>}
