@@ -3,6 +3,7 @@ import App from 'next/app';
 import Head from 'next/head';
 import 'normalize.css/normalize.css';
 import './_app.less';
+import Cookies from '../components/Cookies';
 
 class MyApp extends App {
     setGoogleTags() {
@@ -18,8 +19,9 @@ class MyApp extends App {
     }
 
     render() {
-        const { Component, pageProps } = this.props;
+        const consent = typeof window !== 'undefined' && localStorage.getItem('consent');
 
+        const { Component, pageProps } = this.props;
 
         return (
             <>
@@ -41,9 +43,9 @@ class MyApp extends App {
                     <link rel="manifest" href="/static/manifest.webmanifest" />
                     <meta charSet="utf-8" />
 
-                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>
+                    {consent === 'true' && <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>}
 
-                    <script async dangerouslySetInnerHTML={this.setGoogleTags()} />
+                    {consent === 'true' && <script async dangerouslySetInnerHTML={this.setGoogleTags()} />}
 
                     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
                     <link
@@ -54,6 +56,7 @@ class MyApp extends App {
                         async
                     />
                 </Head>
+                <Cookies />
                 <Component {...pageProps} />
             </>
         );
