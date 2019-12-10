@@ -14,6 +14,7 @@ import Item from '../components/Item';
 import Badge from '../components/Badge';
 import styles from './index.less';
 import HtmlHead from '../components/HtmlHead';
+import { fetchPage } from '../integration/contentful';
 
 const Beers = ({page}) => {
     const [beers, setBeers] = useState([]);
@@ -112,9 +113,7 @@ const Beers = ({page}) => {
 
 Beers.getInitialProps = async () => {
     const url = '/';
-    const response =  await fetch(`https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=page&include=1&fields.url=${url}`);
-    const body = await response.json();
-    return { page: body.items[0].fields };
+    return { page: await fetchPage(url) };
 };
 
 export default Beers;

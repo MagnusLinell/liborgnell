@@ -7,6 +7,7 @@ import Main from '../components/Main';
 import styles from './rate.less';
 import HtmlHead from '../components/HtmlHead';
 import fetch from 'isomorphic-unfetch';
+import { fetchPage } from '../integration/contentful';
 
 const Rate = ({ query, page }) => {
     const [overall, setOverall] = useState(0);
@@ -65,11 +66,9 @@ const Rate = ({ query, page }) => {
     );
 }
 
-Rate.getInitialProps = async ({query}) => {
+Rate.getInitialProps = async ({ query }) => {
     const url = '/rate';
-    const response =  await fetch(`https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=page&include=1&fields.url=${url}`);
-    const body = await response.json();
-    return { query, page: body.items[0].fields };
+    return { query, page: await fetchPage(url) };
 };
 
 export default Rate;
