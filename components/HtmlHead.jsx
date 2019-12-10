@@ -8,7 +8,7 @@ const HtmlHead = ({ page }) => {
             <meta name="og:title" property="og:title" content={page.title} />
             <meta name="og:description" property="og:description" content={page.description} />
             {page.robots ? <meta name="robots" content={page.robots} /> : <meta name="robots" content="index, follow" />}
-            <link href={page.url} rel="canonical" />
+            <link href={page.canonicalUrl} rel="canonical" />
         </Head>
     );
 };
