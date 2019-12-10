@@ -7,11 +7,11 @@ import Item from '../components/Item';
 import HtmlHead from '../components/HtmlHead';
 import { fetchPage } from '../integration/contentful';
 
-const Equipments = ({ page }) => {
+const Equipments = ({ page, locale }) => {
     return (
         <>
             <HtmlHead page={page} />
-            <Header />
+            <Header locale={locale }/>
             <Main center>
                 <MaxWidth>
                     <h3>Equipments</h3>
@@ -38,14 +38,14 @@ const Equipments = ({ page }) => {
                     </List>
                 </MaxWidth>
             </Main>
-            <Footer />
+            <Footer locale={locale} />
         </>
     );
 }
 
-Equipments.getInitialProps = async () => {
+Equipments.getInitialProps = async ({ req }) => {
     const url = '/equipments';
-    return { page: await fetchPage(url) };
+    return await fetchPage(url, req && req.headers);
 };
 
 export default Equipments;

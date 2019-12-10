@@ -5,11 +5,11 @@ import Main from '../components/Main';
 import HtmlHead from '../components/HtmlHead';
 import { fetchPage } from '../integration/contentful';
 
-const Process = ({page}) => {
+const Process = ({ page, locale }) => {
     return (
         <>
             <HtmlHead page={page} />
-            <Header />
+            <Header locale={locale} />
             <Main center>
                 <MaxWidth>
                     <h3>The brew process</h3>
@@ -28,14 +28,14 @@ const Process = ({page}) => {
                     <p>Häll socker i flaskorna och fyll dem med det jästa ölet. Låt stå i ca 2 veckor.</p>
                 </MaxWidth>
             </Main>
-            <Footer />
+            <Footer locale={locale} />
         </>
     );
 }
 
-Process.getInitialProps = async () => {
+Process.getInitialProps = async ({ req }) => {
     const url = '/process';
-    return { page: await fetchPage(url) };
+    return await fetchPage(url, req && req.headers);
 };
 
 export default Process;

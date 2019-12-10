@@ -9,7 +9,7 @@ import HtmlHead from '../components/HtmlHead';
 import fetch from 'isomorphic-unfetch';
 import { fetchPage } from '../integration/contentful';
 
-const Rate = ({ query, page }) => {
+const Rate = ({ query, page, locale }) => {
     const [overall, setOverall] = useState(0);
     const onRate = async (e) => {
         e.preventDefault();
@@ -48,27 +48,28 @@ const Rate = ({ query, page }) => {
     return (
         <>
             <HtmlHead page={page} />
-            <Header />
+            <Header locale={locale} />
             <Main center>
                 <MaxWidth>
                     <form className={styles.form} onSubmit={onRate}>
-                        <h3>Rate the beer</h3>
-                        <label className={styles.label} htmlFor="overall">Overall rate (1-10)</label>
+                        <h3>{locale ==='sv-SE' ? 'Betygsätt ölen' : 'Rate the beer'}</h3>
+                        <label className={styles.label} htmlFor="overall">{locale ==='sv-SE' ? 'Övergripande betyg' : 'Overall rate'} (1-10)</label>
                         <div>
                             <input className={styles.input} name="overall" type="number" min="1" max="10" onBlur={updateOverall} onChange={updateOverall} />
-                            <button className={styles.button} type="submit">Rate</button>
+                            <button className={styles.button} type="submit">{locale ==='sv-SE' ? 'Betygsätt' : 'Rate'}</button>
                         </div>
                     </form>
                 </MaxWidth>
             </Main>
-            <Footer />
+            <Footer locale={locale} />
         </>
     );
 }
 
-Rate.getInitialProps = async ({ query }) => {
+Rate.getInitialProps = async ({ query, req }) => {
     const url = '/rate';
-    return { query, page: await fetchPage(url) };
+    const page =  await fetchPage(url, req && req.headers);
+    return { query, ...page };
 };
 
 export default Rate;

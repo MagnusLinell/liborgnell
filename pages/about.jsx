@@ -5,25 +5,25 @@ import Main from '../components/Main';
 import HtmlHead from '../components/HtmlHead';
 import { fetchPage } from '../integration/contentful';
 
-const About = ({page}) => {
+const About = ({ page, locale }) => {
     return (
         <>
             <HtmlHead page={page} />
-            <Header />
+            <Header locale={locale} />
             <Main center>
                 <MaxWidth>
                     <h3>Brewers</h3>
                     <p>Magnus Linell has since autumn 2018 brewed beer on both extract and whole malt. I brew with the BIAB method since early 2019 in the kitchen in Sollentuna, Sweden.</p>
                 </MaxWidth>
             </Main>
-            <Footer />
+            <Footer locale={locale} />
         </>
     );
 }
 
-About.getInitialProps = async () => {
+About.getInitialProps = async ({ req }) => {
     const url = '/about';
-    return { page: await fetchPage(url) };
+    return await fetchPage(url, req && req.headers);
 };
 
 export default About;

@@ -43,10 +43,10 @@ class MyApp extends App {
                     <link rel="manifest" href="/static/manifest.json" />
                     <meta charSet="utf-8" />
 
-                    <link rel="preconnect" href="https://cdn.contentful.com" crossOrigin />
-                    <link rel="preconnect" href="https://images.ctfassets.net/" crossOrigin />
-                    <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin />
-                    <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin />
+                    <link rel="preconnect" href="https://cdn.contentful.com" crossOrigin="true" />
+                    <link rel="preconnect" href="https://images.ctfassets.net/" crossOrigin="true" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin="true" />
+                    <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="true" />
                 </Head>
                 <link
                         rel="stylesheet"

@@ -16,7 +16,7 @@ import styles from './index.less';
 import HtmlHead from '../components/HtmlHead';
 import { fetchPage } from '../integration/contentful';
 
-const Beers = ({page}) => {
+const Beers = ({ page, locale }) => {
     const [beers, setBeers] = useState([]);
     const [ratings, setRatings] = useState([]);
     const beersWithMaltExtract = beers.filter(beer => beer.type === 'malt extract');
@@ -33,7 +33,7 @@ const Beers = ({page}) => {
 
     useEffect(() => {
         const fetchBeers = async () => {
-            const fetched = await fetch('https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=beer&include=2&order=-fields.brewedAt');
+            const fetched = await fetch(`https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=beer&include=2&order=-fields.brewedAt&locale=${locale}`);
             const fetchedBody = await fetched.json();
             const fetchedBeers = fetchedBody.items.map(item => item.fields);
             const images = fetchedBody.includes.Asset;
@@ -52,10 +52,10 @@ const Beers = ({page}) => {
         const doneTime = new Date(beer.doneAt).getTime();
         const nowTime = new Date().getTime();
         if (nowTime >= tappTime && nowTime < doneTime) {
-            return 'Carbonating';
+            return locale === 'sv-SE' ? 'Kolsyrar' : 'Carbonating';
         }
         if (nowTime >= brewTime && nowTime < tappTime) {
-            return 'Fermenting';
+            return locale === 'sv-SE' ? 'Jäser' : 'Fermenting';
         }
         return null;
     };
@@ -72,7 +72,7 @@ const Beers = ({page}) => {
                 {badgeText && <Badge text={badgeText} />}
                 <h2>{beer.title} {beer.oldTitle && <OldName text={beer.oldTitle} />}</h2>
                 {overallRating > 0 && <div className={styles.rating}>{ratingIcons} ({beerRatings.length})</div>}
-                <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : 'unknown'}%</p>
+                <p>{beer.brewedAt} - {beer.amount} liter - {beer.alcoholVolume ? beer.alcoholVolume : (locale === 'sv-SE' ? 'okänd' : 'unknown')}%</p>
                 {beer.image && <Image className={styles.fermentation} height={beer.image.details.image.height} width={beer.image.details.image.width} src={`${beer.image.url}?fm=webp`} alt={beer.title} />}
                 <p>{beer.description}</p>
                 <List>
@@ -91,29 +91,29 @@ const Beers = ({page}) => {
     return (
         <>
             <HtmlHead page={page} />
-            <Header />
+            <Header locale={locale} />
             <Main>
                 <Article>
-                    <h3>Brewed on whole malt with BIAB</h3>
+                    <h3>{locale === 'sv-SE' ? 'Bryggd på helmalt med BIAB' : 'Brewed on whole malt with BIAB'}</h3>
                     <Sections>
                         {beersWithWholeMalt.map(createBeer)}
                     </Sections>
                 </Article>
                 <Article>
-                    <h3>Brewed on malt extract</h3>
+                    <h3>{locale === 'sv-SE' ? 'Bryggd på maltextrakt' : 'Brewed on malt extract'}</h3>
                     <Sections>
                         {beersWithMaltExtract.map(createBeer)}
                     </Sections>
                 </Article>
             </Main>
-            <Footer />
+            <Footer locale={locale} />
         </>
     );
 }
 
-Beers.getInitialProps = async () => {
+Beers.getInitialProps = async ({ req }) => {
     const url = '/';
-    return { page: await fetchPage(url) };
+    return await fetchPage(url, req && req.headers);
 };
 
 export default Beers;
