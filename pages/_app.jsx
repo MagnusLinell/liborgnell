@@ -3,12 +3,20 @@ import App from 'next/app';
 import Head from 'next/head';
 import 'normalize.css/normalize.css';
 import './_app.less';
-import Cookies from '../components/Cookies';
+import Fingerprint2 from 'fingerprintjs2';
 
 class MyApp extends App {
     componentDidMount() {
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("/service-worker.js").catch(err => console.error("Service worker registration failed", err));
+            Fingerprint2.getV18((clientId) => {
+                ga('create', 'UA-140775141-1', {
+                    'storage': 'none',
+                    'clientId': clientId
+                });
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            });
         }
     }
 
@@ -16,17 +24,15 @@ class MyApp extends App {
         return {
             __html:
                 `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag() {dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'UA-140775141-1');
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject'] = r;i[r]=i[r]||function(){
+                    (i[r].q = i[r].q || []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
                 `
         };
     }
 
     render() {
-        const consent = typeof window !== 'undefined' && localStorage.getItem('consent');
-
         const { Component, pageProps } = this.props;
 
         return (
@@ -49,17 +55,15 @@ class MyApp extends App {
                     <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="true" />
                 </Head>
                 <link
-                        rel="stylesheet"
-                        type="text/css"
-                        href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"
-                        lazyload="true"
-                        async
-                        defer
-                    />
-                <Cookies />
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"
+                    lazyload="true"
+                    async
+                    defer
+                />
                 <Component {...pageProps} />
-                {consent === 'true' && <script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-140775141-1"></script>}
-                {consent === 'true' && <script async defer dangerouslySetInnerHTML={this.setGoogleTags()} />}
+                <script async defer dangerouslySetInnerHTML={this.setGoogleTags()} />
             </>
         );
     }
