@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Router from 'next/router'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MaxWidth from '../components/MaxWidth';
+import Beer from '../components/Beer';
 import Main from '../components/Main';
 import styles from './rate.less';
 import HtmlHead from '../components/HtmlHead';
 import fetch from 'isomorphic-unfetch';
-import { fetchPage } from '../integration/contentful';
+import { fetchPage, fetchBeers } from '../integration/contentful';
 
 const Rate = ({ query, page, locale }) => {
-    const [overall, setOverall] = useState(0);
+    const [beers, setBeers] = useState([]);
+    const [overallRate, setOverallRate] = useState(5);
+    const beer = query.code && beers.find(beer => query.beerId === beer.beerId);
+
+    useEffect(() => {
+        const getBeers = async () => {
+            const mappedBeers = await fetchBeers();
+            setBeers(mappedBeers);
+        }
+        getBeers();
+    }, []);
+
     const onRate = async (e) => {
         e.preventDefault();
-        if (overall < 1 || overall > 10) {
+        if (overallRate < 1 || overallRate > 10) {
             return;
         }
         try {
@@ -26,7 +38,7 @@ const Rate = ({ query, page, locale }) => {
                 body: JSON.stringify({
                     beerId: query.beerId,
                     code: query.code,
-                    overall
+                    overall: overallRate
                 })
             });
             Router.push({
@@ -39,7 +51,7 @@ const Rate = ({ query, page, locale }) => {
 
     const updateOverall = (e) => {
         try {
-            setOverall(parseInt(e.target.value));
+            setOverallRate(parseInt(e.target.value));
         } catch (e) {
             console.error(e);
         }
@@ -51,14 +63,24 @@ const Rate = ({ query, page, locale }) => {
             <Header locale={locale} />
             <Main center>
                 <MaxWidth>
-                    <form className={styles.form} onSubmit={onRate}>
-                        <h3>{locale ==='sv-SE' ? 'Betygsätt ölen' : 'Rate the beer'}</h3>
-                        <label className={styles.label} htmlFor="overall">{locale ==='sv-SE' ? 'Övergripande betyg' : 'Overall rate'} (1-10)</label>
-                        <div>
-                            <input className={styles.input} name="overall" type="number" min="1" max="10" onBlur={updateOverall} onChange={updateOverall} />
-                            <button className={styles.button} type="submit">{locale ==='sv-SE' ? 'Betygsätt' : 'Rate'}</button>
-                        </div>
-                    </form>
+                    {!beer && (
+                        <div>Nothing here!</div>
+                    )}
+                    {beer && (
+                        <Beer locale={locale} {...beer} />
+                    )}
+                    {beer && (
+                        <form className={styles.form} onSubmit={onRate}>
+                            <h3>{locale === 'sv-SE' ? 'Betygsätt ölen' : 'Rate the beer'}</h3>
+                            <label className={styles.label} htmlFor="overall">{locale === 'sv-SE' ? 'Övergripande betyg' : 'Overall rate'} (1-10)</label>
+                            <div className={styles.sliderContainer}>
+                                <input id="overall" type="range" min="1" max="10" value={overallRate} onChange={updateOverall} name="overall" className={styles.slider} /><span className={styles.value}>{overallRate}</span>
+                            </div>
+                            <div className={styles.submit}>
+                                <button className={styles.button} type="submit">{locale === 'sv-SE' ? 'Betygsätt' : 'Rate'}</button>
+                            </div>
+                        </form>
+                    )}
                 </MaxWidth>
             </Main>
             <Footer locale={locale} />
@@ -68,7 +90,7 @@ const Rate = ({ query, page, locale }) => {
 
 Rate.getInitialProps = async ({ query, req }) => {
     const url = '/rate';
-    const page =  await fetchPage(url, req && req.headers);
+    const page = await fetchPage(url, req && req.headers);
     return { query, ...page };
 };
 

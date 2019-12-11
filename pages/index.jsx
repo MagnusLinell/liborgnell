@@ -14,7 +14,7 @@ import Item from '../components/Item';
 import Badge from '../components/Badge';
 import styles from './index.less';
 import HtmlHead from '../components/HtmlHead';
-import { fetchPage } from '../integration/contentful';
+import { fetchPage, fetchBeers } from '../integration/contentful';
 
 const Beers = ({ page, locale }) => {
     const [beers, setBeers] = useState([]);
@@ -32,18 +32,11 @@ const Beers = ({ page, locale }) => {
     }, []);
 
     useEffect(() => {
-        const fetchBeers = async () => {
-            const fetched = await fetch(`https://cdn.contentful.com/spaces/64xqbvwx99mx/environments/master/entries?access_token=gqWbB2DnVZKhCDXV1Ib7wTZvpwH6EN80Lv_vhEvxZBs&content_type=beer&include=2&order=-fields.brewedAt&locale=${locale}`);
-            const fetchedBody = await fetched.json();
-            const fetchedBeers = fetchedBody.items.map(item => item.fields);
-            const images = fetchedBody.includes.Asset;
-            const mappedBeers = fetchedBeers.map(beer => {
-                const image = images.find(image => (image && image.sys.id) === (beer.image && beer.image.sys.id));
-                return { ...beer, image: image && { ...image.fields.file } };
-            });
+        const getBeers = async () => {
+            const mappedBeers = await fetchBeers();
             setBeers(mappedBeers);
         }
-        fetchBeers();
+        getBeers();
     }, []);
 
     const getBadgeText = (beer) => {
