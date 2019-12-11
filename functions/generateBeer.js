@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
     try {
         const beerId = uuid();
         const code = uuid();
-        const toUrl = encodeURIComponent(`https://www.liborgnell.com/rate?code=${code}&beerId=${beerId}`);
+        const toUrl = encodeURIComponent(`https://www.brewbang.com/rate?code=${code}&beerId=${beerId}`);
         const qr = `${url}${toUrl}`;
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const col = client.db(dbName).collection('beers');
