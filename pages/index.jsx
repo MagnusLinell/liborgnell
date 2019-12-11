@@ -69,7 +69,7 @@ const Beers = ({ page, locale }) => {
                 {beer.image && <Image className={styles.fermentation} height={beer.image.details.image.height} width={beer.image.details.image.width} src={`${beer.image.url}?fm=webp`} alt={beer.title} />}
                 <p>{beer.description}</p>
                 <List>
-                    {beer.guest && <Item><strong>Guest:</strong> {beer.guest}</Item>}
+                    {beer.guestBrewer && <Item><strong>Guest:</strong> {beer.guestBrewer}</Item>}
                     {beer.style && <Item><strong>Style:</strong> {beer.style}</Item>}
                     {beer.hop && <Item><strong>Hop:</strong> {beer.hop}</Item>}
                     {beer.malt && <Item><strong>Malt:</strong> {beer.malt}</Item>}
