@@ -9,15 +9,15 @@ class MyApp extends App {
     componentDidMount() {
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("/service-worker.js").catch(err => console.error("Service worker registration failed", err));
-            Fingerprint2.getV18((clientId) => {
-                ga('create', 'UA-140775141-1', {
-                    'storage': 'none',
-                    'clientId': clientId
-                });
-                ga('set', 'anonymizeIp', true);
-                ga('send', 'pageview');
-            });
         }
+        Fingerprint2.getV18((clientId) => {
+            ga('create', 'UA-140775141-1', {
+                'storage': 'none',
+                'clientId': clientId
+            });
+            ga('set', 'anonymizeIp', true);
+            ga('send', 'pageview');
+        });
     }
 
     setGoogleTags() {
