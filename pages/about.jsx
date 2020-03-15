@@ -5,6 +5,7 @@ import Main from '../components/Main';
 import HtmlHead from '../components/HtmlHead';
 import { fetchPage } from '../integration/contentful';
 import Content from '../components/Content';
+import RichText from '../components/RichText';
 
 const About = ({ page, locale }) => {
     return (
@@ -14,8 +15,7 @@ const About = ({ page, locale }) => {
             <Main center>
                 <MaxWidth>
                     <Content>
-                        <h3>Brewers</h3>
-                        <p>Magnus Linell has since autumn 2018 brewed beer on both extract and whole malt. I brew with the BIAB method since early 2019 in the kitchen in Sollentuna, Sweden.</p>
+                        <RichText text={page.text} />
                     </Content>
                 </MaxWidth>
             </Main>

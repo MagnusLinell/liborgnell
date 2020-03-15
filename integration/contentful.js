@@ -7,7 +7,7 @@ export const fetchPage = async (url, headers) => {
     const body = await response.json();
     return {
         locale,
-        page: body.items[0].fields
+        page: body.items[0].fields,
     };
 };
 

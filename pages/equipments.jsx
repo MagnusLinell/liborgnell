@@ -7,12 +7,13 @@ import Item from '../components/Item';
 import HtmlHead from '../components/HtmlHead';
 import { fetchPage } from '../integration/contentful';
 import Content from '../components/Content';
+import RichText from '../components/RichText';
 
 const Equipments = ({ page, locale }) => {
     return (
         <>
             <HtmlHead page={page} />
-            <Header locale={locale }/>
+            <Header locale={locale} />
             <Main center>
                 <MaxWidth>
                     <Content>
