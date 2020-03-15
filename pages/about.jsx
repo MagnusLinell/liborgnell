@@ -4,6 +4,7 @@ import MaxWidth from '../components/MaxWidth';
 import Main from '../components/Main';
 import HtmlHead from '../components/HtmlHead';
 import { fetchPage } from '../integration/contentful';
+import Content from '../components/Content';
 
 const About = ({ page, locale }) => {
     return (
@@ -12,8 +13,10 @@ const About = ({ page, locale }) => {
             <Header locale={locale} />
             <Main center>
                 <MaxWidth>
-                    <h3>Brewers</h3>
-                    <p>Magnus Linell has since autumn 2018 brewed beer on both extract and whole malt. I brew with the BIAB method since early 2019 in the kitchen in Sollentuna, Sweden.</p>
+                    <Content>
+                        <h3>Brewers</h3>
+                        <p>Magnus Linell has since autumn 2018 brewed beer on both extract and whole malt. I brew with the BIAB method since early 2019 in the kitchen in Sollentuna, Sweden.</p>
+                    </Content>
                 </MaxWidth>
             </Main>
             <Footer locale={locale} />
