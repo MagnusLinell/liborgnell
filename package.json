@@ -39,12 +39,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MagnusLinell/liborgnell.git"
+    "url": "git+https://github.com/MagnusLinell/brewbang.git"
   },
   "author": "Magnus Linell",
   "license": "UNLICENCED",
   "bugs": {
-    "url": "https://github.com/MagnusLinell/liborgnell/issues"
+    "url": "https://github.com/MagnusLinell/brewbang/issues"
   },
-  "homepage": "https://github.com/MagnusLinell/liborgnell#readme"
+  "homepage": "https://github.com/MagnusLinell/brewbang#readme"
 }
