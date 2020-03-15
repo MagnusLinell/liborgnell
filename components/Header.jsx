@@ -8,7 +8,7 @@ const Header = ({ locale }) => {
     return (
         <header className={styles.header}>
             <h1>Brewbang</h1>
-            <h2>Home brew with a BANG!</h2>
+            <h2>Home brewed with a BANG!</h2>
             <p>{locale === 'sv-SE' ? 'Jag brygger olika ölsorter. Mestadels öl gjort på malt, humle, jäst och vatten.' : 'I brew mixed styles of beers. Mostly beer made on malt, hop, yeast and water.'}</p>
             <nav className={styles.nav}>
                 <Link href="/"><a><FontAwesomeIcon fixedWidth className={styles.icon} icon={faBeer} /> {locale === 'sv-SE' ? 'Öl' : 'Beer'}</a></Link>
