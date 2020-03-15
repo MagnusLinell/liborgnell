@@ -87,13 +87,13 @@ const Beers = ({ page, locale }) => {
             <Header locale={locale} />
             <Main>
                 <Article>
-                    <h3>{locale === 'sv-SE' ? 'Bryggd på helmalt med BIAB' : 'Brewed on whole malt with BIAB'}</h3>
+                    <h3>{locale === 'sv-SE' ? 'Bryggd på helmalt med BIAB' : 'Brewed on all grain with BIAB'}</h3>
                     <Sections>
                         {beersWithWholeMalt.map(createBeer)}
                     </Sections>
                 </Article>
                 <Article>
-                    <h3>{locale === 'sv-SE' ? 'Bryggd på maltextrakt' : 'Brewed on malt extract'}</h3>
+                    <h3>{locale === 'sv-SE' ? 'Bryggd på maltextrakt' : 'Brewed on extract'}</h3>
                     <Sections>
                         {beersWithMaltExtract.map(createBeer)}
                     </Sections>
